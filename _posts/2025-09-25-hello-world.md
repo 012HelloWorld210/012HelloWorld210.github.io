@@ -13,3 +13,5 @@ tags: 随笔 图文
 ## 一段代码
 ```python
 print("Hello Minimal Mistakes!")
+## 一段视频
+{% include bilibili.html bvid="BV1GTnhzrExS" page=1 %}

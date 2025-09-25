@@ -1,0 +1,13 @@
+<!-- _includes/bilibili.html -->
+<style>
+/* 简单响应式容器，放在 include 里能直接生效 */
+.bili-video-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1em 0;}
+.bili-video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+</style>
+
+<div class="bili-video-container">
+  <iframe loading="lazy"
+    src="https://player.bilibili.com/player.html?bvid={{ include.bvid }}&page={{ include.page | default: 1 }}"
+    allowfullscreen>
+  </iframe>
+</div>
