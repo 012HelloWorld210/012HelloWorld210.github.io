@@ -1,1 +1,21 @@
+title: "我的博客"
+description: "记录学习与生活"
+theme: minimal-mistakes-jekyll
+
+# 使用远程主题
+remote_theme: mmistakes/minimal-mistakes
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+
+author:
+  name: "012HelloWorld210"
+  bio: "一个在路上的学习者"
+  location: "China"
+  links:
+    - label: "GitHub"
+      url: "https://github.com/012HelloWorld210"
 
