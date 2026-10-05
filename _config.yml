@@ -1,6 +1,9 @@
-title: "小梁的博客"
-description: "记录学习与生活"
+title: "梁浩琪 | 机器人系统与具身智能工程"
+description: "聚焦机器人系统、控制规划、SLAM/Nav2、VLA 真机闭环、遥操作与 Jetson 边缘部署。"
 lang: "zh-CN"        # 告知浏览器使用中文语言
+url: "https://www.leguanxiaoliang.com"
+locale: "zh-CN"
+timezone: "Asia/Shanghai"
 
 # 使用远程主题
 remote_theme: mmistakes/minimal-mistakes
@@ -12,9 +15,10 @@ plugins:
   - jekyll-paginate
 
 author:
-  name: "012HelloWorld210"
-  bio: "一个在路上的学习者"
-  location: "China"
+  name: "梁浩琪"
+  bio: "机器人系统、控制规划与具身智能工程方向硕士。"
+  location: "广州 / 西安"
+  email: "2693075546@qq.com"
   links:
     - label: "GitHub"
       url: "https://github.com/012HelloWorld210"
