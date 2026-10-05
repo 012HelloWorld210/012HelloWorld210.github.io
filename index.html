@@ -34,6 +34,7 @@
   </script>
 </head>
 <body>
+  <canvas class="circuit-canvas" aria-hidden="true"></canvas>
   <a class="skip-link" href="#main">跳到正文</a>
   <header class="site-header">
     <nav class="nav" aria-label="主导航">
@@ -57,6 +58,12 @@
         <p class="eyebrow">Robotics Systems · Embodied AI · Control</p>
         <h1 id="hero-title">梁浩琪</h1>
         <p class="hero-lede">面向真实机器人的系统工程与算法落地：从 ROS2 控制链路、SLAM/Nav2、遥操作数据采集，到 VLA 训练推理与 Jetson 边缘部署。</p>
+        <div class="signal-strip" aria-label="能力关键词">
+          <span>ROS2 Control</span>
+          <span>VLA Closed Loop</span>
+          <span>SLAM / Nav2</span>
+          <span>Jetson Edge AI</span>
+        </div>
         <div class="hero-actions" aria-label="主要操作">
           <a class="button primary" href="#projects">查看项目</a>
           <a class="button secondary" href="mailto:2693075546@qq.com">邮件联系</a>
@@ -70,9 +77,20 @@
 
       <div class="hero-visual" aria-label="机器人系统闭环示意">
         <div class="system-panel">
+          <div class="scanline" aria-hidden="true"></div>
           <div class="panel-top">
             <span>Closed-loop robotics stack</span>
             <span class="status-dot" aria-hidden="true"></span>
+          </div>
+          <div class="robot-core" aria-hidden="true">
+            <div class="radar-ring ring-one"></div>
+            <div class="radar-ring ring-two"></div>
+            <div class="core-chip">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <i class="satellite sat-one"></i>
+            <i class="satellite sat-two"></i>
+            <i class="satellite sat-three"></i>
           </div>
           <div class="stack-diagram">
             <div class="node node-sense">Perception<br><small>RGB-D / IMU / SLAM</small></div>
@@ -98,19 +116,19 @@
         <p>目标是成为机器人系统与控制规划方向的工程型研究者，能同时理解感知、规划、控制、通信、数据和部署链路。</p>
       </div>
       <div class="focus-grid">
-        <article>
+        <article class="reveal-card">
           <h3>机器人系统</h3>
           <p>ROS2、ros2_control、硬件接口、状态通信、真机链路调试，以及多型号机器人适配。</p>
         </article>
-        <article>
+        <article class="reveal-card">
           <h3>控制与规划</h3>
           <p>IK / DLS、PD / 阻抗控制、Nav2 路径跟踪、CBF 风险约束与动态避障验证。</p>
         </article>
-        <article>
+        <article class="reveal-card">
           <h3>VLA 真机闭环</h3>
           <p>遥操作适配、数据采集、格式转换、归一化、训练推理、远程执行与数据集迭代。</p>
         </article>
-        <article>
+        <article class="reveal-card">
           <h3>边缘部署</h3>
           <p>Jetson Orin / Thor、Docker、CUDA / JetPack、TensorRT 加速与跨平台迁移。</p>
         </article>
@@ -123,21 +141,21 @@
         <h2 id="experience-title">最新经历</h2>
       </div>
       <div class="timeline">
-        <article class="timeline-item">
+        <article class="timeline-item reveal-card">
           <time>2026.08 - 2026.09</time>
           <div>
             <h3>众擎机器人 · 人形机器人控制算法实习</h3>
             <p>参与人形机器人 ROS2 控制系统与真机软件开发，基于 C++ 完成关节空间示教回放、多型号机器人适配及控制链路调试；参与 ros2_control、硬件接口、阻抗 / PD 控制与动力学模块的真机验证。</p>
           </div>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item reveal-card">
           <time>2026.04 - 2026.07</time>
           <div>
             <h3>广电运通·超智机器人 · 具身智能 / VLA 部署实习</h3>
             <p>打通“遥操作控制、数据采集、数据转换归一化、模型训练、远程推理、真机执行”工程链路；通过 ZMQ 隔离 ROS2 与训练环境，优化通信与图像链路，将遥操作解算延迟控制在 20ms 以内。</p>
           </div>
         </article>
-        <article class="timeline-item">
+        <article class="timeline-item reveal-card">
           <time>2025.06 - 2025.09</time>
           <div>
             <h3>优艾智合机器人 · 机器人系统实习</h3>
@@ -160,7 +178,7 @@
         <button class="filter" type="button" data-filter="edge">边缘部署</button>
       </div>
       <div class="project-grid">
-        <article class="project-card" data-tags="robotics">
+        <article class="project-card reveal-card" data-tags="robotics">
           <div class="card-top">
             <span>2024.03 - 至今</span>
             <strong>算法负责人</strong>
@@ -172,7 +190,7 @@
             <li>验证动态障碍物场景下的安全避障策略</li>
           </ul>
         </article>
-        <article class="project-card" data-tags="edge vla">
+        <article class="project-card reveal-card" data-tags="edge vla">
           <div class="card-top">
             <span>2025.12 - 至今</span>
             <strong>核心开发</strong>
@@ -184,7 +202,7 @@
             <li>沉淀边缘端具身智能部署基础设施</li>
           </ul>
         </article>
-        <article class="project-card" data-tags="vla edge">
+        <article class="project-card reveal-card" data-tags="vla edge">
           <div class="card-top">
             <span>2025.06</span>
             <strong>队长</strong>
@@ -205,15 +223,15 @@
         <h2 id="outputs-title">成果与能力栈</h2>
       </div>
       <div class="outputs-grid">
-        <article>
+        <article class="reveal-card">
           <h3>成果产出</h3>
           <p>学生一作 EI 检索论文《Semantic Communications with Zero-Shot Learning for Multi-modal Transmission》；发明专利《基于语义不确定性与动态安全距离的无人机安全控制方法》；软著《机械臂运动轨迹规划分析系统 V1.0》。</p>
         </article>
-        <article>
+        <article class="reveal-card">
           <h3>竞赛</h3>
           <p>嵌入式芯片与系统设计竞赛国家级三等奖，“博创杯”嵌入式人工智能设计大赛国家级二等奖，物联网设计竞赛、智能制造挑战赛、电子设计竞赛省一等奖。</p>
         </article>
-        <article>
+        <article class="reveal-card">
           <h3>技术栈</h3>
           <div class="tag-cloud" aria-label="技术关键词">
             <span>ROS2</span><span>Nav2</span><span>RTAB-Map</span><span>VINS-Fusion</span><span>ros2_control</span><span>IK / DLS</span><span>MPC</span><span>CBF</span><span>Isaac Sim</span><span>ManiSkill</span><span>OpenPI</span><span>SmolVLA</span><span>TensorRT</span><span>Docker</span>
