@@ -390,8 +390,12 @@ const applyLanguage = (language) => {
 const initialLanguage = getStoredLanguage()
   || (navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en");
 
-document.querySelectorAll(".lang-button").forEach((button) => {
-  button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+document.addEventListener("click", (event) => {
+  const button = event.target instanceof Element ? event.target.closest(".lang-button") : null;
+  if (!button) return;
+
+  event.preventDefault();
+  applyLanguage(button.dataset.lang);
 });
 
 applyLanguage(initialLanguage);
