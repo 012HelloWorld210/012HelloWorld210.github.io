@@ -1,5 +1,5 @@
-title: "梁浩琪 | 机器人系统与具身智能工程"
-description: "聚焦机器人系统、控制规划、SLAM/Nav2、VLA 真机闭环、遥操作与 Jetson 边缘部署。"
+title: "梁浩琪 | 机器人系统、控制与规划"
+description: "机器人系统工程作品集：感知、规划、控制、ROS2 真机集成与具身智能部署。"
 lang: "zh-CN"        # 告知浏览器使用中文语言
 url: "https://www.leguanxiaoliang.com"
 locale: "zh-CN"
@@ -16,7 +16,7 @@ plugins:
 
 author:
   name: "梁浩琪"
-  bio: "机器人系统、控制规划与具身智能工程方向硕士。"
+  bio: "机器人系统、控制与规划方向硕士。"
   location: "广州 / 西安"
   email: "2693075546@qq.com"
   links:
