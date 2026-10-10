@@ -35,6 +35,7 @@ const translations = {
     experience: {
       title: "最新经历",
       items: [
+        ["2026.09 — 2026.10", "星尘智能 · 机器人视觉跟随 App 开发", "开发以视觉为核心的指定人物跟随 App，接入 YOLO 检测、目标锁定、Re-ID 特征管理、双目 / 深度定位、底盘控制与目标丢失停车；完成后端逻辑和 Vision UI，初步验证导航跟随，现聚焦真机数据采集、阈值标定与稳定性优化。"],
         ["2026.08 — 2026.09", "众擎机器人 · 人形机器人控制算法实习", "参与人形机器人 ROS2 控制系统与真机软件开发，完成 C++ 关节空间示教回放、多型号适配和控制链路调试，并参与硬件接口与控制模块的真机验证。"],
         ["2026.04 — 2026.07", "广电运通·超智机器人 · 具身智能 / VLA 部署实习", "打通遥操作采集、数据转换、模型训练、远程推理与真机执行链路；用 ZMQ 隔离 ROS2 与训练环境，优化通信和图像传输。"],
         ["2025.06 — 2025.09", "优艾智合机器人 · 机器人系统实习", "构建 VR 机械臂遥操作系统，将 Meta Quest 3 控制器位姿映射到机械臂末端，对接工业控制器并准备 ManiSkill 仿真模型。"],
@@ -46,7 +47,7 @@ const translations = {
       filters: ["全部", "机器人系统", "具身智能", "边缘部署"],
       detailLabels: ["负责内容", "验证重点"], note: "系统示意 · 非实拍",
       items: [
-        { role: "目标跟随", title: "机器人目标识别与跟随", summary: "面向真实移动机器人，将目标检测与身份保持、相对位置估计、跟随控制和导航接口连接为完整链路。", details: ["视觉感知、目标跟踪与 Re-ID、深度 / 方位估计和底盘跟随链路集成。", "真机跟随闭环与目标丢失时的安全处理。"], diagram: "目标跟随系统流程图" },
+        { role: "星尘智能", title: "指定人物识别与机器人跟随", summary: "在星尘智能机器人平台开发指定人物跟随 App，串联 YOLO 检测、目标锁定、双目 / 深度定位、底盘控制与目标丢失停车。", details: ["接入 Re-ID 特征管理与诊断链路、Vision UI、机器人 SDK 底盘控制，并初步验证 Navigation Follow。", "正在采集真机数据、标定相似度阈值，优化跨视角身份保持、遮挡恢复及跟随稳定性。"], diagram: "人物跟随系统流程图" },
         { role: "Unitree Go2", title: "Go2 视觉 SLAM、导航与安全控制", summary: "在 Jetson 与 RealSense D435i 平台验证视觉惯性定位、稠密建图和动态障碍场景下的安全导航链路。", details: ["部署 VINS-Fusion / RTAB-Map，完成 TF 坐标对齐，并集成 Nav2 与 CBF 安全约束。", "Go2 真机上的定位、路径执行与动态避障。"], diagram: "Go2 导航系统流程图" },
         { role: "遥操作 · 真机执行", title: "具身智能与 VLA 真机部署", summary: "将遥操作采集、数据转换、模型训练与推理、机器人动作执行接成可迭代的工程流程。", details: ["对接 ROS2 与训练环境，优化通信和图像链路，并适配 Jetson 边缘端部署。", "遥操作到模型推理、再到真机执行的闭环。"], diagram: "具身智能系统流程图" },
         { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 上部署 YOLOv5n、Whisper.cpp 与 Qwen，完成 PyTorch 到 ONNX 到 TensorRT 的目标检测加速，打通语音指令、视觉感知、大模型决策和运动执行。", bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
@@ -100,6 +101,7 @@ const translations = {
     experience: {
       title: "Recent Experience",
       items: [
+        ["Sep 2026 — Oct 2026", "星尘智能 · Robot Vision & Following App", "Developed a vision-based app for following a selected person, integrating YOLO detection, target lock, Re-ID feature management, stereo/depth positioning, chassis control, and safe stopping on target loss. Completed backend logic and the Vision UI, initially validated navigation following, and now focus on real-robot data collection, threshold calibration, and stability."],
         ["Aug 2026 — Sep 2026", "EngineAI · Humanoid Robot Control Intern", "Developed ROS2 control software for humanoid robots, including C++ joint-space teaching and replay, robot model adaptation, and control pipeline debugging. Helped validate hardware interfaces and control modules on real robots."],
         ["Apr 2026 — Jul 2026", "GRG Banking Superbrain Robotics · Embodied AI / VLA Intern", "Connected teleoperation data collection, data conversion, model training, remote inference, and robot execution. Used ZMQ to separate ROS2 from the training environment and improved communication and image transport."],
         ["Jun 2025 — Sep 2025", "Youibot Robotics · Robotics Systems Intern", "Built a VR arm teleoperation system that mapped Meta Quest 3 controller poses to the robot end effector, integrated industrial controllers, and prepared ManiSkill simulation models."],
@@ -111,7 +113,7 @@ const translations = {
       filters: ["All", "Robot Systems", "Embodied AI", "Edge Deployment"],
       detailLabels: ["My role", "Validation"], note: "System diagram · not project footage",
       items: [
-        { role: "Human following", title: "Human Tracking & Robot Following", summary: "Connected person detection and identity maintenance, relative positioning, follow control, and navigation interfaces for a real mobile robot.", details: ["Integrated visual perception, tracking and Re-ID, depth and bearing estimation, and chassis following.", "Closed-loop following on hardware and safe handling when the target is lost."], diagram: "Human following system diagram" },
+        { role: "星尘智能", title: "Selected-Person Recognition & Robot Following", summary: "Developed an app on the 星尘智能 robot platform for following a selected person, connecting YOLO detection, target lock, stereo/depth positioning, chassis control, and safe stopping on target loss.", details: ["Integrated Re-ID feature management and diagnostics, the Vision UI, and robot SDK chassis control; completed initial Navigation Follow validation.", "Collecting real-robot data and calibrating similarity thresholds while improving cross-view identity retention, occlusion recovery, and following stability."], diagram: "Person-following system diagram" },
         { role: "Unitree Go2", title: "Go2 Visual SLAM, Navigation & Safety", summary: "Validated visual-inertial localization, dense mapping, and safe navigation around dynamic obstacles with Jetson and RealSense D435i.", details: ["Deployed VINS-Fusion / RTAB-Map, aligned TF frames, and integrated Nav2 with CBF safety constraints.", "Localization, path execution, and dynamic obstacle avoidance on a real Go2."], diagram: "Go2 navigation system diagram" },
         { role: "Teleoperation · Robot execution", title: "Embodied AI & VLA Deployment", summary: "Connected teleoperation data collection, conversion, model training and inference, and robot actions into an iterative workflow.", details: ["Connected ROS2 with the training environment, improved communication and image transport, and adapted Jetson edge deployment.", "The loop from teleoperation to inference and real robot execution."], diagram: "Embodied AI system diagram" },
         { role: "Team Lead", title: "Multimodal Embodied AI System", summary: "Deployed YOLOv5n, Whisper.cpp, and Qwen on Jetson Orin Nano, accelerated detection from PyTorch through ONNX to TensorRT, and connected voice commands, vision, model decisions, and motion.", bullets: ["Integrated a multimodal agent workflow", "Optimized lightweight deployment for robot tasks"] },
