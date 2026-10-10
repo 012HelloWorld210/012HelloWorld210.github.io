@@ -198,9 +198,11 @@ const applyLanguage = (language) => {
   });
   setText("#experience-title", copy.experience.title);
   document.querySelectorAll(".timeline-item").forEach((item, index) => {
-    item.querySelector("time").textContent = copy.experience.items[index][0];
-    item.querySelector("h3").textContent = copy.experience.items[index][1];
-    item.querySelector("p").textContent = copy.experience.items[index][2];
+    const entry = copy.experience.items[index];
+    if (!entry) return;
+    item.querySelector("time").textContent = entry[0];
+    item.querySelector("h3").textContent = entry[1];
+    item.querySelector("p").textContent = entry[2];
   });
   setText("#projects-title", copy.projects.title);
   setText("#projects .section-heading p:not(.eyebrow)", copy.projects.intro);
