@@ -132,7 +132,7 @@
         <article class="reveal-card">
           <h3>SLAM、感知与定位</h3>
           <p>激光 / RGB-D 建图、视觉惯性定位、目标检测与跟踪。</p>
-          <a class="capability-link" href="#go2-slam">SLAM 与导航项目 ↗</a>
+          <a class="capability-link" href="#semantic-tour">SLAM 与导航项目 ↗</a>
         </article>
         <article class="reveal-card">
           <h3>具身智能与边缘端</h3>
@@ -248,15 +248,7 @@
             <div class="case-bottom"><div><strong>&lt;20 ms</strong><small><span class="case-zh">优化后的解算延迟</span><span class="case-en">reported solver latency</span></small></div><div><strong>~50 Hz</strong><small><span class="case-zh">任务数据采集频率</span><span class="case-en">task data collection</span></small></div></div>
             <a class="case-link" href="#vla"><span class="case-zh">查看部署链路</span><span class="case-en">View deployment pipeline</span><span aria-hidden="true">↗</span></a>
           </article>
-          <article class="case-feature case-feature--slam">
-            <div class="case-meta"><span>04 / SLAM &amp; AUTONOMOUS NAVIGATION</span><span>UNITREE GO2 · 2025</span></div>
-            <div class="case-kicker"><span class="case-zh">环境建图与自主移动</span><span class="case-en">MAPPING &amp; AUTONOMOUS NAVIGATION</span></div>
-            <h3><span class="case-zh">从 RGB-D 感知到 Go2 自主导航</span><span class="case-en">From RGB-D perception to Go2 navigation</span></h3>
-            <div class="case-mini-flow"><span>D435i RGB-D</span><b>→</b><span>RTAB-Map</span><b>→</b><span>ROS2 TF</span><b>→</b><span>Nav2</span><b>→</b><span>Go2 EDU</span></div>
-            <p><span class="case-zh">基于 Unitree Go2 EDU、RealSense D435i 与 Jetson Orin Nano，使用 RTAB-Map 0.21.10 完成 RGB-D 环境建图，梳理 map / odom / base_link 坐标变换，并接入 Nav2 验证定位与目标点导航。</span><span class="case-en">Built an RGB-D mapping and navigation pipeline with Unitree Go2 EDU, RealSense D435i and Jetson Orin Nano. Integrated RTAB-Map 0.21.10, ROS2 TF frames and Nav2 for localization and goal navigation.</span></p>
-            <div class="case-bottom"><div><strong>RTAB-Map</strong><small><span class="case-zh">RGB-D SLAM</span><span class="case-en">RGB-D SLAM</span></small></div><div><strong>Nav2</strong><small><span class="case-zh">自主导航</span><span class="case-en">autonomous navigation</span></small></div><div><strong>ROS2</strong><small><span class="case-zh">系统集成</span><span class="case-en">system integration</span></small></div></div>
-            <a class="case-link" href="#go2-slam"><span class="case-zh">查看项目实现</span><span class="case-en">View project details</span><span aria-hidden="true">↗</span></a>
-          </article>
+          
         </div>
         <p class="case-disclaimer"><span class="case-zh">上述为工程结构示意，不是实拍或性能仪表盘。具体数据沿用现有项目记录；公司项目代码与未授权素材不公开。</span><span class="case-en">System diagrams, not photos or live benchmarks. Figures are from existing project descriptions; proprietary code and unapproved media are not published.</span></p>
       </div>
@@ -288,26 +280,7 @@
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
         </article>
-        <article class="project-card reveal-card" id="go2-slam" data-tags="robotics slam">
-          <div class="card-top">
-            <span>02 / PERCEPTION &amp; NAVIGATION · 2025.03</span>
-            <strong>Unitree Go2 EDU</strong>
-          </div>
-          <h3>Go2 视觉 SLAM、定位与自主导航</h3>
-          <p>基于 Go2 EDU、RealSense D435i 与 Jetson Orin Nano，搭建 ROS2 视觉建图和导航链路；使用 RTAB-Map 构建环境地图，完成 TF 坐标关系配置，并接入 Nav2 实现定位与路径导航。</p>
-          <div class="project-diagram" aria-label="Go2 SLAM与导航流程">
-            <span>D435i RGB-D / IMU</span>
-            <span>RTAB-Map 建图</span>
-            <span>map / odom / base_link</span>
-            <span>Nav2 路径规划</span>
-            <span>Go2 自主导航</span>
-          </div>
-          <dl class="project-details">
-            <div><dt>算法与系统</dt><dd>RTAB-Map RGB-D SLAM；结合相机与 IMU 数据构建环境地图；基于 ROS2 TF 维护 map → odom → base_link 等坐标变换关系。</dd></div>
-            <div><dt>工程实现</dt><dd>在 Jetson Orin Nano 上部署 ROS2、RTAB-Map 0.21.10 与 Nav2，完成 D435i 数据接入、地图构建、定位及导航模块联调。</dd></div>
-            <div><dt>验证重点</dt><dd>检查地图与实际环境的一致性、机器人位姿与 TF 对齐，并通过 Nav2 进行目标点导航验证。</dd></div>
-          </dl>
-        </article>
+        
         <article class="project-card reveal-card" id="vla" data-tags="vla">
           <div class="card-top">
             <span>02 / EMBODIED AI · 2026.04 – 2026.07</span>
@@ -333,26 +306,21 @@
           </dl>
           <small class="diagram-note">云端仿真与边缘部署分层验证 · 非真机性能宣称</small>
         </article>
-        <article class="project-card reveal-card project-minor" data-tags="robotics">
+        <article class="project-card reveal-card project-minor" id="semantic-tour" data-tags="robotics slam">
           <div class="card-top">
-            <span>04 / ROBOT APPLICATION · 2026.11</span>
-            <strong>Astribot T1</strong>
+            <span>04 / SLAM &amp; ROBOT APPLICATION · 2025—2026</span>
+            <strong>Go2 EDU / Astribot T1</strong>
           </div>
-          <h3>基于语义地图的机器人自主导览与语音 / 动作编排</h3>
-          <p>以语义地图和自主导航为主体能力，面向展厅导览场景，辅助完善地图构建、机器人定位与点位讲解流程；在激光雷达建图和导航定位的基础上，将导览点位与语音讲解、机器人动作素材组合，形成可配置、可下发的导览任务。</p>
-          <div class="project-diagram" aria-label="SLAM语义地图与导览任务流程">
-            <span>激光雷达建图</span>
-            <span>地图编辑 / 重定位</span>
-            <span>语义点位 / 自主导航</span>
-            <span>语音 + 动作编排</span>
-            <span>任务下发与状态确认</span>
+          <h3>SLAM 定位导航与语义地图导览交互</h3>
+          <p>将先前 Go2 上的 RGB-D SLAM 与 Nav2 集成经验，结合 Astribot T1 语义地图导览应用实践，覆盖环境建图、定位导航、语义点位管理，以及语音与动作任务编排。</p>
+          <div class="project-diagram" aria-label="SLAM 到语义地图导览的技术链路">
+            <span>RGB-D / LiDAR 建图</span><span>定位 / TF / 导航</span><span>地图编辑与语义点位</span><span>语音 + 动作编排</span><span>导览任务下发</span>
           </div>
           <dl class="project-details">
-            <div><dt>SLAM 能力</dt><dd>系统支持通过底盘前置激光雷达遥控扫描环境生成地图，并进行地图查看与编辑：清除动态行人拖影和多余障碍物、补充缺失障碍物及边界；进入导航后核对地图坐标与机器人实际位置，支持自动重定位及地图上的手动位置 / 朝向校正。</dd></div>
-            <div><dt>参与内容</dt><dd>辅助熟悉并验证建图、地图编辑、定位与导航流程；参与导览区域和点位录制、语音与动作素材配置，以及任务阶段和子步骤编排。讲解步骤绑定语音 + 动作，导航步骤绑定目标点位。</dd></div>
-            <div><dt>系统验证</dt><dd>通过单点导航与多点巡航检查地图路线可行性，并围绕点位录制、素材管理、任务预览及自动 / 手动下发验证导览闭环；任务支持串行与并行阶段。</dd></div>
+            <div><dt>SLAM 积累</dt><dd>Go2 EDU + D435i + Jetson Orin Nano：集成 RTAB-Map 0.21.10，处理 RGB-D 建图、map / odom / base_link 坐标变换，并使用 Nav2 联调定位与目标点导航。</dd></div>
+            <div><dt>导览参与</dt><dd>Astribot T1：辅助验证激光雷达建图、地图障碍物 / 边界编辑、自动与手动重定位、单点与多点导航；配合录制导览点位，配置语音和动作素材，编排串行 / 并行任务并下发。</dd></div>
           </dl>
-          <small class="diagram-note">辅助参与任务编排与交互流程 · 地图与导航为系统主体</small>
+          <small class="diagram-note">Go2 为此前独立 SLAM 集成项目；T1 为语义地图导览辅助参与，非同一平台</small>
         </article>
         <article class="project-card reveal-card project-minor" data-tags="vla edge">
           <div class="card-top">
@@ -375,13 +343,7 @@
         <h2 id="experience-title">最新经历</h2>
       </div>
       <div class="timeline">
-        <article class="timeline-item reveal-card">
-          <time>2025.03 – 2025.05</time>
-          <div>
-            <h3>Unitree Go2 EDU · 视觉 SLAM 与自主导航项目</h3>
-            <p>基于 D435i、Jetson Orin Nano 与 ROS2，使用 RTAB-Map 完成 RGB-D 环境建图，配置 map / odom / base_link TF 关系并接入 Nav2，验证机器人定位与目标点导航。</p>
-          </div>
-        </article>
+        
         <article class="timeline-item reveal-card">
           <time>2026.09 – 至今</time>
           <div>
@@ -470,6 +432,6 @@
     <span>© 2026 梁浩琪</span>
     <a href="/feed.xml">RSS</a>
   </footer>
-  <script src="/assets/js/home.js?v=20261122-4" defer></script>
+  <script src="/assets/js/home.js?v=20261122-7" defer></script>
 </body>
 </html>
