@@ -98,6 +98,13 @@ h2 { max-width: 850px; margin-bottom: 15px; font-size: 2.45rem; font-weight: 780
 .focus-grid p { min-height: 84px; margin-bottom: 14px; color: var(--muted); font-size: .89rem; }
 .capability-link { color: var(--accent-dark); font-size: .84rem; font-weight: 750; }
 .capability-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.skills-section { border-bottom: 1px solid var(--line); }
+.skills-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.skills-card { min-width: 0; padding: 24px 22px; background: var(--surface); border: 1px solid #d8e3dc; border-radius: 8px; }
+.skills-card h3 { margin-bottom: 5px; font-size: 1.02rem; }
+.skills-card > p { margin-bottom: 14px; color: var(--muted); font-size: .82rem; }
+.skills-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.skills-tags li { padding: 4px 9px; color: #3f625a; background: #edf4f0; border: 1px solid #dfeae4; border-radius: 6px; font-size: .74rem; font-weight: 650; }
 .timeline { border-top: 1px solid var(--line); }
 .timeline-item { display: grid; grid-template-columns: 175px minmax(0,1fr); gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); }
 .timeline-item > div { position: relative; padding-left: 22px; border-left: 1px solid #d2dfd8; }
@@ -177,6 +184,9 @@ h2 { max-width: 850px; margin-bottom: 15px; font-size: 2.45rem; font-weight: 780
   .focus-grid article { border-bottom: 1px solid var(--line); }
   .focus-grid article:nth-child(2) { border-right: 0; }
   .focus-grid article:nth-child(n+3) { border-bottom: 0; }
+  .skills-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .nav-links { gap: 0; }
+  .nav-links a { padding: 0 9px; font-size: .85rem; }
 }
 @media (max-width: 740px) {
   :root { --container: min(100% - 30px, 1180px); }
@@ -225,6 +235,7 @@ h2 { max-width: 850px; margin-bottom: 15px; font-size: 2.45rem; font-weight: 780
   .project-diagram span::before { top: 10px; left: 8px; }
   .project-diagram span:not(:last-child)::after { top: auto; right: auto; bottom: -6px; left: 10px; transform: rotate(90deg); font-size: .8rem; }
   .focus-grid, .outputs-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
   .focus-grid article { padding: 19px 0; margin: 0; border-right: 0; border-bottom: 1px solid var(--line); }
   .focus-grid article:nth-child(n) { border-right: 0; border-bottom: 1px solid var(--line); }
   .focus-grid article:last-child { border-bottom: 0; }
