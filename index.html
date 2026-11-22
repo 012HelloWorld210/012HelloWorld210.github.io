@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署</title>
-  <meta name="description" content="梁浩琪的机器人系统工程作品集：ROS2 真机控制、遥操作与 VLA 部署、MuJoCo 仿真验证。">
-  <meta name="keywords" content="梁浩琪,机器人系统,ROS2,VLA,遥操作,MuJoCo,具身智能,机器人控制">
+  <title>梁浩琪 | 机器人系统、SLAM 导航与具身智能</title>
+  <meta name="description" content="梁浩琪的机器人系统工程作品集：SLAM 建图与定位导航、ROS2 真机控制、遥操作、VLA 部署与边缘计算。">
+  <meta name="keywords" content="梁浩琪,机器人系统,SLAM,RTAB-Map,VINS,Nav2,ROS2,定位导航,VLA,遥操作,MuJoCo,具身智能">
   <meta name="author" content="梁浩琪">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.leguanxiaoliang.com/">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署">
-  <meta property="og:description" content="ROS2 真机控制、遥操作数据闭环与 VLA 部署。">
+  <meta property="og:title" content="梁浩琪 | 机器人系统、SLAM 导航与具身智能">
+  <meta property="og:description" content="SLAM 建图与定位导航、ROS2 真机控制、遥操作数据闭环与 VLA 部署。">
   <meta property="og:url" content="https://www.leguanxiaoliang.com/">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署">
-  <meta name="twitter:description" content="ROS2 真机控制、遥操作数据闭环与 VLA 部署。">
+  <meta name="twitter:title" content="梁浩琪 | 机器人系统、SLAM 导航与具身智能">
+  <meta name="twitter:description" content="SLAM 建图与定位导航、ROS2 真机控制、遥操作数据闭环与 VLA 部署。">
   <meta name="theme-color" content="#eef3f8">
   <link rel="stylesheet" href="/assets/css/home.css?v=20261122-2">
   <link rel="stylesheet" href="/assets/css/visual-refresh.css?v=20261122-6">
@@ -33,7 +33,7 @@
       {"@type": "CollegeOrUniversity", "name": "兰州理工大学"},
       {"@type": "CollegeOrUniversity", "name": "西安电子科技大学"}
     ],
-    "knowsAbout": ["ROS2", "ros2_control", "MuJoCo", "Isaac Sim", "VLA", "OpenPI", "SmolVLA", "遥操作", "Jetson", "具身智能"]
+    "knowsAbout": ["SLAM", "RTAB-Map", "VINS-Mono", "VINS-Fusion", "Nav2", "RGB-D", "IMU", "ROS2", "ros2_control", "MuJoCo", "Isaac Sim", "VLA", "OpenPI", "SmolVLA", "遥操作", "Jetson", "具身智能"]
   }
   </script>
   <link rel="stylesheet" href="/assets/css/site-polish.css?v=20261122-3">
@@ -69,12 +69,12 @@
       <div class="hero-copy">
         <p class="eyebrow">机器人软件 / 系统工程</p>
         <h1 id="hero-title">梁浩琪</h1>
-        <p class="hero-position">机器人系统 · ROS2 控制 · 具身智能部署</p>
-        <p class="hero-lede">聚焦 ROS2 控制、遥操作与 VLA 部署。</p>
+        <p class="hero-position">机器人系统 · SLAM 定位导航 · 具身智能部署</p>
+        <p class="hero-lede">围绕环境感知、SLAM 建图、定位导航与机器人执行，构建从算法到真机的系统链路。</p>
         <div class="signal-strip" aria-label="能力关键词">
-          <span>ROS2 / ros2_control</span>
-          <span>Teleoperation</span>
-          <span>VLA Deployment</span>
+          <span>SLAM / RTAB-Map</span>
+          <span>ROS2 / Nav2</span>
+          <span>Teleoperation / VLA</span>
           
           <span>MuJoCo / Isaac Sim</span>
         </div>
@@ -97,9 +97,9 @@
             <span class="status-dot" aria-hidden="true"></span>
           </div>
           <div class="stack-diagram">
-            <div class="node node-sense"><span>Perception</span><small>YOLO11n / ONNX / RGB-D</small></div>
+            <div class="node node-sense"><span>Perception</span><small>RGB-D / LiDAR / SLAM</small></div>
             <div class="flow"></div>
-            <div class="node node-plan"><span>Planning</span><small>运动规划 / 运镜轨迹</small></div>
+            <div class="node node-plan"><span>Localization &amp; Planning</span><small>定位 / Nav2 / 运动规划</small></div>
             <div class="flow"></div>
             <div class="node node-act"><span>Control &amp; Robot</span><small>ROS2 / SDK / 43 DOF</small></div>
           </div>
@@ -116,7 +116,7 @@
       <div class="section-heading">
         <p class="eyebrow">01 / SYSTEM CAPABILITIES</p>
         <h2 id="focus-title">机器人系统能力</h2>
-        <p>覆盖感知、规划、控制与部署，并以项目验证工程能力。</p>
+        <p>覆盖环境感知、SLAM 建图、定位导航、运动控制与边缘部署。</p>
       </div>
       <div class="focus-grid">
         <article class="reveal-card">
@@ -130,8 +130,8 @@
           
         </article>
         <article class="reveal-card">
-          <h3>感知与定位</h3>
-          <p>YOLO、ONNX Runtime、Re-ID 与双目深度。</p>
+          <h3>SLAM、感知与定位</h3>
+          <p>激光 / RGB-D 建图、视觉惯性定位、目标检测与跟踪。</p>
           <a class="capability-link" href="#stardust">目标跟随 ↗</a>
         </article>
         <article class="reveal-card">
@@ -168,10 +168,11 @@
         </article>
         <article class="skills-card">
           <h3>感知与定位</h3>
-          <p>目标检测与跟踪</p>
+          <p>建图、定位、重定位与目标感知</p>
           <ul class="skills-tags">
+            <li>RTAB-Map</li><li>VINS-Mono</li><li>VINS-Fusion</li>
+            <li>RGB-D / D435i</li><li>LiDAR / IMU</li><li>ROS2 TF</li><li>Nav2</li>
             <li>YOLO11n / YOLOv5n</li><li>ONNX Runtime</li><li>Re-ID</li>
-            <li>双目 / 深度</li><li>TF 坐标对齐</li>
           </ul>
         </article>
         <article class="skills-card">
@@ -257,11 +258,12 @@
       <div class="section-heading">
         <p class="eyebrow">03 / SELECTED WORK</p>
         <h2 id="projects-title">代表项目</h2>
-        <p>涵盖机器人应用、运动控制、VLA 部署与边缘端运行。</p>
+        <p>涵盖 SLAM 建图与导航、机器人应用、运动控制、VLA 部署与边缘端运行。</p>
       </div>
       <div class="project-toolbar" aria-label="项目筛选">
         <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">全部</button>
         <button class="filter" type="button" data-filter="robotics" aria-pressed="false">机器人系统</button>
+        <button class="filter" type="button" data-filter="slam" aria-pressed="false">SLAM / 导航</button>
         <button class="filter" type="button" data-filter="vla" aria-pressed="false">具身智能</button>
         <button class="filter" type="button" data-filter="edge" aria-pressed="false">边缘部署</button>
       </div>
@@ -277,6 +279,26 @@
           </dl>
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
+        </article>
+        <article class="project-card reveal-card" id="go2-slam" data-tags="robotics slam">
+          <div class="card-top">
+            <span>02 / PERCEPTION &amp; NAVIGATION · 2025.03</span>
+            <strong>Unitree Go2 EDU</strong>
+          </div>
+          <h3>Go2 视觉 SLAM、定位与自主导航</h3>
+          <p>基于 Go2 EDU、RealSense D435i 与 Jetson Orin Nano，搭建 ROS2 视觉建图和导航链路；使用 RTAB-Map 构建环境地图，完成 TF 坐标关系配置，并接入 Nav2 实现定位与路径导航。</p>
+          <div class="project-diagram" aria-label="Go2 SLAM与导航流程">
+            <span>D435i RGB-D / IMU</span>
+            <span>RTAB-Map 建图</span>
+            <span>map / odom / base_link</span>
+            <span>Nav2 路径规划</span>
+            <span>Go2 自主导航</span>
+          </div>
+          <dl class="project-details">
+            <div><dt>算法与系统</dt><dd>RTAB-Map RGB-D SLAM；结合相机与 IMU 数据构建环境地图；基于 ROS2 TF 维护 map → odom → base_link 等坐标变换关系。</dd></div>
+            <div><dt>工程实现</dt><dd>在 Jetson Orin Nano 上部署 ROS2、RTAB-Map 0.21.10 与 Nav2，完成 D435i 数据接入、地图构建、定位及导航模块联调。</dd></div>
+            <div><dt>验证重点</dt><dd>检查地图与实际环境的一致性、机器人位姿与 TF 对齐，并通过 Nav2 进行目标点导航验证。</dd></div>
+          </dl>
         </article>
         <article class="project-card reveal-card" id="vla" data-tags="vla">
           <div class="card-top">
@@ -345,6 +367,13 @@
         <h2 id="experience-title">最新经历</h2>
       </div>
       <div class="timeline">
+        <article class="timeline-item reveal-card">
+          <time>2025.03 – 2025.05</time>
+          <div>
+            <h3>Unitree Go2 EDU · 视觉 SLAM 与自主导航项目</h3>
+            <p>基于 D435i、Jetson Orin Nano 与 ROS2，使用 RTAB-Map 完成 RGB-D 环境建图，配置 map / odom / base_link TF 关系并接入 Nav2，验证机器人定位与目标点导航。</p>
+          </div>
+        </article>
         <article class="timeline-item reveal-card">
           <time>2026.09 – 至今</time>
           <div>
