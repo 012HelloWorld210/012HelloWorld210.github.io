@@ -289,15 +289,15 @@
           <dl class="project-details"><div><dt>负责内容</dt><dd>将天工 URDF 接入 XRobotToolkit，对齐关节与动作空间；拆分动作和图像传输，适配 ROS2 话题及 π0.5 / OpenPI 推理接口。</dd></div><div><dt>验证重点</dt><dd>采集银行卡抓取、盖章递交和刷卡任务；单任务约 100 条、约 50 Hz，盖章递交初测 20 次，核心流程完成率约 80%。</dd></div></dl>
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
-        <article class="project-card reveal-card" id="thor" data-tags="edge vla">
+        <article class="project-card reveal-card" id="thor" data-tags="edge vla robotics">
           <div class="card-top">
-            <span>03 / EDGE DEPLOYMENT · 2025.12 – 至今</span>
-            <strong>Jetson Thor</strong>
+            <span>03 / EDGE AI &amp; MOTION OPTIMIZATION · 2025.12 – 至今</span>
+            <strong>Jetson Thor · SO-101</strong>
           </div>
-          <h3>Jetson Thor 具身智能系统容器化部署</h3>
-          <p>完成 Jetson Thor 的 Docker、CUDA 与 JetPack 适配，部署 SmolVLA 推理并迁移 VR 遥操作链路。</p>
-          <div class="project-diagram" aria-label="Thor 部署流程图"><span>环境适配</span><span>Docker 迁移</span><span>SmolVLA 推理</span><span>遥操作链路迁移</span><span>跨平台验证</span></div>
-          <dl class="project-details"><div><dt>负责内容</dt><dd>完成依赖与镜像适配，部署 SmolVLA 推理服务，并处理 VR 遥操作迁移中的设备和通信差异。</dd></div><div><dt>验证重点</dt><dd>验证 Orin 到 Thor 的推理迁移、遥操作复用与运行稳定性。</dd></div></dl>
+          <h3>SO-101 机械臂动作轨迹优化与边缘端部署</h3>
+          <p>基于 Jetson Thor 构建轻量机械臂具身操作验证链路，围绕 VLA 动作块衔接、执行时序调度与关节轨迹平滑开展优化，并面向 SO-101 仿真及真机验证。</p>
+          <div class="project-diagram" aria-label="SO-101 动作执行优化流程图"><span>VLA 动作块</span><span>进度 / 边界感知</span><span>异步调度与对齐</span><span>轨迹时序约束</span><span>SO-101 反馈</span></div>
+          <dl class="project-details"><div><dt>负责内容</dt><dd>完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；搭建 ACT / SmolVLA 策略训练与推理环境，推进 SO-101 执行链路集成。</dd></div><div><dt>验证重点</dt><dd>以 SO-101 Bench 为统一任务平台，对比固定动作块、PTS 风格时间重参数化 / 异步执行，以及结合任务进度与执行反馈的调度策略；评估成功率、完成时间、轨迹连续性与推理等待。</dd></div></dl>
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
         <article class="project-card reveal-card project-minor" data-tags="vla edge">
