@@ -295,10 +295,40 @@
             <strong>Jetson Thor · SO-101</strong>
           </div>
           <h3>SO-101 机械臂动作执行时序与轨迹连续性优化</h3>
-          <p>基于 Jetson Thor 构建轻量机械臂具身操作验证链路，围绕 VLA 动作块时序、异步推理接管与夹爪接触执行开展工程验证；在 Thor 上完成策略推理基准、同步 / 异步调度对照及 SO-101 MuJoCo 夹爪几何实验。</p>
-          <div class="project-diagram" aria-label="SO-101 动作执行优化流程图"><span>VLA 动作块</span><span>进度 / 边界感知</span><span>异步调度与对齐</span><span>轨迹时序约束</span><span>SO-101 反馈</span></div>
-          <dl class="project-details"><div><dt>负责内容</dt><dd>完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；验证 SmolVLA / GR00T observation→action chunk 推理，搭建 SO-101 MuJoCo 环境、策略适配器、同步 / 异步调度器与执行指标记录。</dd></div><div><dt>验证重点</dt><dd>对比 sync 与 async-naive 的墙钟耗时、动作块过期率、接管跳变及关节跟踪 RMSE；另以确定性 IK fixture 验证夹爪碰撞几何和接触垫参数敏感性。当前策略 checkpoint 为 SO-100 训练资产，策略自主抓取与真机闭环尚未验证。</dd></div></dl>
-          <details class="project-evidence"><summary>展开实测数据与验证边界</summary><div class="project-evidence-content"></div></details>
+          <p>基于云端 L20 的 SO-101 Bench / Isaac Lab 与本地 Jetson Thor 边缘环境，围绕冻结 GR00T 策略的动作块时序、路径进度对齐、异步推理接管与关节执行约束开展分层验证。</p>
+          <div class="project-diagram" aria-label="SO-101 动作执行优化流程图"><span>冻结 GR00T</span><span>路径进度感知</span><span>异步调度与对齐</span><span>执行约束 / 预测</span><span>SO-101 评估</span></div>
+          <figure style="margin:18px 0 22px">
+            <a href="/assets/so101-vla-execution-framework.svg" target="_blank" rel="noopener">
+              <img src="/assets/so101-vla-execution-framework.svg" alt="SO-101 机械臂 VLA 动作执行时序与轨迹连续性优化研究框架：包含路径进度感知、异步动作块调度、关节增量约束、一阶预测执行，以及云端 L20 和 Jetson Thor 分层验证" loading="lazy" style="display:block;width:100%;height:auto;border:1px solid #dce7eb;border-radius:14px;background:#f5f8fa">
+            </a>
+            <figcaption style="margin-top:8px;color:#718592;font-size:.82rem">研究框架图 · 点击可查看原尺寸 · PTS-inspired 工程集成，非官方复现</figcaption>
+          </figure>
+          <dl class="project-details"><div><dt>负责内容</dt><dd>完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；验证 SmolVLA / GR00T observation→action chunk 推理。云端 L20 侧基于 SO-101 Bench / Isaac Lab 集成执行调度器，加入异步 ZMQ 推理、路径相位管理、动作块局部对齐、关节目标增量约束与一阶预测执行原型。</dd></div><div><dt>验证重点</dt><dd>云端记录原始策略基线及同步 / 异步执行模式，关注任务成功率、墙钟耗时、推理等待、动作块接管间隙和执行状态；Thor 侧侧重边缘推理性能、Docker / CUDA / JetPack 适配与资源占用。两者是不同层次的验证，不能将云端仿真结果表述为 Thor 真机结果。</dd></div></dl>
+          <details class="project-evidence"><summary>展开研究方法、参考论文与验证边界</summary>
+            <div class="project-evidence-content" style="line-height:1.8">
+              <h4>1. 路径进度感知与动作块对齐</h4>
+              <p>执行器维护当前动作路径相位 <code>phase</code>，并在发起远程推理时记录 <code>request_phase</code>。新动作返回后，计算推理期间旧路径已消耗的进度；结合当前实际关节状态，在新动作块的局部候选节点中寻找接近的接管位置，再以当前状态或上一条命令作为入口锚点。该机制感知的是连续路径执行进度，不是已经训练完成的“接近—抓取—搬运—放置”语义阶段分类器。</p>
+              <h4>2. 异步推理与连续执行</h4>
+              <p>主线程生成独立 NumPy 观测快照，后台线程执行独立 ZMQ 请求；当前动作块在远程推理期间继续执行。新动作返回后先缓存，待合适的旧块接管时机再进行局部对齐。推理未完成时保持上一条命令，并记录等待、停滞、请求次数、响应次数、异常和推理耗时。</p>
+              <h4>3. 执行约束与预测原型</h4>
+              <ul>
+                <li><strong>关节目标增量约束：</strong>对五个机械臂关节分别限制命令增量，检查轨迹中间节点，并通过二分搜索确定当前允许的相位推进量。</li>
+                <li><strong>夹爪事件保护：</strong>夹爪开闭作为离散事件处理，不做普通线性插值，避免动作块接管时跨越开合事件。</li>
+                <li><strong>一阶响应预测：</strong>使用 q̂ₖ₊₁ = q̂ₖ + α(qcmd − q̂ₖ) 预测未来 4 个控制步的误差，并在候选执行倍率中回退。当前 alpha=0.65 为示例参数，尚未完成独立的执行器响应辨识。</li>
+              </ul>
+              <h4>4. 参考研究</h4>
+              <ul>
+                <li><a href="https://arxiv.org/abs/2611.01390" target="_blank" rel="noopener">PTS — Same Path, Less Time</a>：时间重参数化、异步动作执行与路径进度管理的主要工程参考；当前实现为 PTS-inspired 集成，并非作者官方代码复现。</li>
+                <li><a href="https://arxiv.org/abs/2606.00537" target="_blank" rel="noopener">PACE — Phase-Aware Chunk Execution</a>：动作块运动特征与阶段边界感知的后续研究参考；当前代码尚未完整实现其低速谷值检测机制。</li>
+                <li><a href="https://arxiv.org/abs/2607.24008" target="_blank" rel="noopener">FutureRTC</a>：异步推理中的时序错位与时延补偿参考；当前实现没有复现其视觉预测模块。</li>
+                <li><a href="https://www.microsoft.com/en-us/research/publication/continue-or-replan-bernoulli-continuation-policy-learning-for-adaptive-horizon-execution/" target="_blank" rel="noopener">BCP — Continue or Replan?</a>：自适应继续执行 / 重新规划决策参考；当前未训练 continuation head。</li>
+                <li><a href="https://arxiv.org/abs/2610.05719" target="_blank" rel="noopener">RACE — When to Switch</a>：长动作块中的子技能转换研究参考；当前未复现其预测机制。</li>
+                <li><a href="https://doi.org/10.1109/TRO.2018.2819195" target="_blank" rel="noopener">TOPP-RA</a>：路径时间参数化与可达性分析的理论背景；当前没有实现严格 TOPP-RA 求解器。</li>
+              </ul>
+              <h4>5. 验证边界</h4>
+              <p>云端 L20 用于 SO-101 Bench / Isaac Lab 的策略执行与调度对照；Jetson Thor 用于边缘推理基准、容器化部署与资源适配。两者共享研究框架，但不代表相同实验条件或相同结果。当前速度上限约束的是发出的关节目标增量，不等于真实关节速度保证，也不构成碰撞安全证明。语义阶段识别、任务级风险预测、主动恢复和 SO-101 真机完整闭环仍属于后续工作。</p>
+            </div>
+          </details>
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
         <article class="project-card reveal-card project-minor" data-tags="vla edge">
