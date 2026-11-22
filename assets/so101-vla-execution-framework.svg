@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1420" viewBox="0 0 1600 1420" role="img" aria-labelledby="title desc">
+<title id="title">SO-101 机械臂 VLA 动作执行时序与轨迹连续性优化研究框架</title>
+<desc id="desc">基于冻结 GR00T 策略的路径进度感知、异步动作块调度、关节增量约束和预测执行，并在云端 L20 与 Jetson Thor 上开展不同层次的验证。</desc>
+<defs>
+  <linearGradient id="head" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e8f5f3"/><stop offset="1" stop-color="#edf2fb"/></linearGradient>
+  <linearGradient id="teal" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0f9b8e"/><stop offset="1" stop-color="#25b7a5"/></linearGradient>
+  <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#20384b" flood-opacity=".07"/></filter>
+  <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#13a596"/></marker>
+  <style>
+    text{font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif;fill:#193746}
+    .muted{fill:#6c8391}.eyebrow{font-size:17px;font-weight:700;letter-spacing:2.2px;fill:#0b9488}
+    .h1{font-size:39px;font-weight:800}.h2{font-size:25px;font-weight:750}.h3{font-size:19px;font-weight:700}
+    .body{font-size:17px;fill:#526d7c}.small{font-size:15px;fill:#6c8391}.tiny{font-size:13px;fill:#7d909b}
+    .card{fill:#fff;stroke:#dce7eb;stroke-width:1.5;filter:url(#shadow)}.soft{fill:#f1f7f6;stroke:#dcebe8;stroke-width:1.2}
+    .blue{fill:#eff4fb;stroke:#dce6f3;stroke-width:1.2}.tealText{fill:#0b9488}.orangeText{fill:#d8754e}
+    .line{stroke:#13a596;stroke-width:3;fill:none;marker-end:url(#arr)}.divider{stroke:#e4ecef;stroke-width:1.3}
+  </style>
+</defs>
+<rect width="1600" height="1420" fill="#f5f8fa"/>
+<rect x="0" y="0" width="1600" height="135" fill="url(#head)"/>
+<text x="64" y="45" class="eyebrow">ROBOT LEARNING · EXECUTION SYSTEMS · EDGE DEPLOYMENT</text>
+<text x="64" y="96" class="h1">SO-101 机械臂 VLA 动作执行时序与轨迹连续性优化</text>
+<rect x="1290" y="42" width="245" height="43" rx="21" fill="#173c4a"/>
+<text x="1412" y="69" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">冻结策略 · 执行层优化</text>
+
+<!-- policy input -->
+<rect x="60" y="165" width="1480" height="145" rx="20" class="card"/>
+<text x="90" y="202" class="eyebrow">01 / POLICY INPUT &amp; ACTION CHUNK</text>
+<rect x="90" y="222" width="340" height="62" rx="12" class="blue"/>
+<text x="112" y="248" class="h3">观测快照</text><text x="112" y="271" class="small">RGB 图像 · 关节状态 · 任务指令</text>
+<path d="M450 253 H520" class="line"/>
+<rect x="540" y="222" width="390" height="62" rx="12" fill="#e9f6f3" stroke="#bfe5dc"/>
+<text x="565" y="248" class="h3">GR00T N1.7-3B 远程策略</text><text x="565" y="271" class="small">冻结模型权重 · ZMQ 推理接口</text>
+<path d="M950 253 H1020" class="line"/>
+<rect x="1040" y="222" width="465" height="62" rx="12" class="soft"/>
+<text x="1065" y="248" class="h3">动作块 Aₜ = [aₜ, …, aₜ₊H₋₁]</text><text x="1065" y="271" class="small">五个机械臂关节目标 + 夹爪离散事件</text>
+
+<!-- progress -->
+<rect x="60" y="345" width="710" height="365" rx="20" class="card"/>
+<text x="90" y="385" class="eyebrow">02 / PROGRESS AWARENESS</text>
+<text x="90" y="424" class="h2">路径进度感知与新动作对齐</text>
+<rect x="90" y="450" width="195" height="92" rx="12" class="soft"/>
+<text x="108" y="480" class="h3">路径相位</text><text x="108" y="510" class="body">phaseₜ</text><text x="108" y="530" class="tiny">当前动作块执行位置</text>
+<rect x="315" y="450" width="195" height="92" rx="12" class="blue"/>
+<text x="333" y="480" class="h3">请求时相位</text><text x="333" y="510" class="body">phase_request</text><text x="333" y="530" class="tiny">发起下一次推理时记录</text>
+<rect x="540" y="450" width="195" height="92" rx="12" fill="#fff4ed" stroke="#f0d8c9"/>
+<text x="558" y="480" class="h3">实际关节状态</text><text x="558" y="510" class="body">q_actual</text><text x="558" y="530" class="tiny">当前机器人反馈</text>
+<path d="M185 550 V570 H410" stroke="#13a596" stroke-width="2.2" fill="none"/>
+<path d="M410 550 V570" stroke="#13a596" stroke-width="2.2" fill="none"/>
+<path d="M637 550 V570 H410" stroke="#13a596" stroke-width="2.2" fill="none"/>
+<rect x="90" y="585" width="645" height="92" rx="12" fill="#eaf7f4" stroke="#c8e8df"/>
+<text x="112" y="615" class="h3 tealText">推理期间已消耗的旧路径进度</text>
+<text x="112" y="649" font-size="24" font-weight="750">mₜ = phaseₜ − phase_request</text>
+<text x="480" y="617" class="small">局部候选节点匹配</text><text x="480" y="642" class="small">入口锚定 · 夹爪事件保护</text><text x="480" y="665" class="tiny">不从新动作块第 0 步盲目重启</text>
+
+<!-- async -->
+<rect x="800" y="345" width="740" height="365" rx="20" class="card"/>
+<text x="830" y="385" class="eyebrow">03 / ASYNCHRONOUS CHUNK SCHEDULING</text>
+<text x="830" y="424" class="h2">推理与机械臂执行并行</text>
+<rect x="830" y="450" width="320" height="116" rx="13" fill="#eaf6f1" stroke="#cde8dd"/>
+<text x="852" y="480" class="h3 tealText">执行主线程</text>
+<text x="852" y="510" class="body">继续执行当前动作块</text><text x="852" y="538" class="small">读取状态 · 推进路径相位</text>
+<rect x="1180" y="450" width="330" height="116" rx="13" fill="#eef3fb" stroke="#d7e3f2"/>
+<text x="1202" y="480" class="h3">后台推理线程</text>
+<text x="1202" y="510" class="body">独立 ZMQ 请求 GR00T</text><text x="1202" y="538" class="small">单请求队列 · 观测快照隔离</text>
+<path d="M990 578 V595 H1160" class="line"/><path d="M1340 578 V595 H1160" class="line"/>
+<rect x="830" y="615" width="680" height="65" rx="12" class="soft"/>
+<text x="852" y="643" class="h3">新动作暂存 → 等待旧块合适接管点 → 进度对齐 → 连续过渡</text>
+<text x="852" y="665" class="tiny">推理未完成则保持上一命令并记录 waiting / stall / error 状态</text>
+
+<!-- optimization -->
+<rect x="60" y="745" width="1480" height="300" rx="20" class="card"/>
+<text x="90" y="785" class="eyebrow">04 / EXECUTION OPTIMIZATION</text>
+<text x="90" y="825" class="h2">执行器中的四项优化机制</text>
+<rect x="90" y="850" width="335" height="160" rx="14" class="soft"/>
+<text x="112" y="883" class="h3 tealText">A · 动作块连续衔接</text>
+<text x="112" y="917" class="body">局部关节状态匹配</text><text x="112" y="945" class="body">旧命令 / 实际状态锚定</text><text x="112" y="973" class="body">夹爪开闭事件不插值</text>
+<rect x="450" y="850" width="335" height="160" rx="14" class="blue"/>
+<text x="472" y="883" class="h3">B · 关节增量约束</text>
+<text x="472" y="917" class="body">逐关节 command slew cap</text><text x="472" y="945" class="body">检查路径中间节点</text><text x="472" y="973" class="body">二分搜索可行相位推进量</text>
+<rect x="810" y="850" width="335" height="160" rx="14" fill="#fff5ed" stroke="#f0dfd1"/>
+<text x="832" y="883" class="h3 orangeText">C · 一阶预测执行</text>
+<text x="832" y="917" class="body">q̂ₖ₊₁ = q̂ₖ + α(qcmd − q̂ₖ)</text><text x="832" y="945" class="body">预测未来 4 个控制步误差</text><text x="832" y="973" class="body">倍率候选回退 / 误差预算约束</text>
+<rect x="1170" y="850" width="335" height="160" rx="14" class="soft"/>
+<text x="1192" y="883" class="h3 tealText">D · 运行状态诊断</text>
+<text x="1192" y="917" class="body">推理耗时与请求计数</text><text x="1192" y="945" class="body">等待 / stall / 异常统计</text><text x="1192" y="973" class="body">动作接管入口间隙记录</text>
+
+<!-- validation -->
+<rect x="60" y="1080" width="1480" height="205" rx="20" class="card"/>
+<text x="90" y="1120" class="eyebrow">05 / TWO-PLATFORM VALIDATION</text>
+<rect x="90" y="1142" width="660" height="112" rx="14" fill="#eef3fb" stroke="#d8e3f0"/>
+<text x="115" y="1177" class="h2">Cloud · Alibaba Cloud L20</text>
+<text x="115" y="1207" class="body">SO-101 Bench / Isaac Lab · GR00T 远程推理</text>
+<text x="115" y="1235" class="small">原始基线、同步 / 异步调度模式与执行器对照实验</text>
+<rect x="850" y="1142" width="655" height="112" rx="14" fill="#eaf6f1" stroke="#cde8dd"/>
+<text x="875" y="1177" class="h2">Edge · Jetson Thor</text>
+<text x="875" y="1207" class="body">Docker / CUDA / JetPack · SO-101 环境适配</text>
+<text x="875" y="1235" class="small">边缘推理基准、资源占用与执行链路部署验证</text>
+<text x="90" y="1325" class="eyebrow">RESEARCH REFERENCES</text>
+<text x="90" y="1355" class="small">PTS · Same Path, Less Time  /  PACE · Phase-Aware Chunk Execution  /  FutureRTC  /  BCP · Continue or Replan?  /  RACE  /  TOPP-RA (2018)</text>
+<text x="90" y="1385" class="tiny">范围说明：PTS-inspired 工程集成，非官方复现；当前预测器为一阶响应原型，尚不构成动力学安全证明。云端仿真与 Thor 边缘部署属于不同验证层次，不能混称为同一组实验结果。</text>
+</svg>
