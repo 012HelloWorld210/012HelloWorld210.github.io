@@ -163,3 +163,35 @@
   .case-feature--camera .case-facts--camera { gap: 15px 12px; }
   .case-feature--camera .case-facts--camera strong { font-size: 1.17rem; }
 }
+
+
+/* 2026-11-23: tighten vertical rhythm and clarify the homepage system pipeline. */
+.hero {
+  min-height: min(570px, calc(100svh - 112px));
+  padding-block: 52px 50px;
+  gap: clamp(32px, 4.5vw, 66px);
+}
+.hero .signal-strip { margin-top: 22px; }
+.hero .hero-actions { margin-top: 24px; }
+.hero .quick-facts { margin-top: 27px; }
+.system-panel { padding: 26px; }
+.stack-diagram { padding-block: 22px 20px; }
+.node { min-height: 126px; }
+.section { padding-block: 76px; }
+.section-heading { margin-bottom: 28px; }
+.focus-section { padding-bottom: 68px; }
+.projects-section { padding-block: 82px; }
+.case-section { padding-block: 72px 66px; }
+.education-section { margin-top: 56px; }
+.contact-section { padding-block: 72px; }
+@media (max-width: 1050px) {
+  .hero { min-height: auto; padding-block: 52px; }
+}
+@media (max-width: 760px) {
+  .hero { padding-block: 40px 44px; gap: 26px; }
+  .section { padding-block: 62px; }
+  .focus-section { padding-bottom: 56px; }
+  .projects-section { padding-block: 62px; }
+  .case-section { padding-block: 58px 52px; }
+  .contact-section { padding-block: 56px; }
+}
