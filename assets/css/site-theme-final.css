@@ -1,0 +1,50 @@
+/* Final explicit theme layer: eliminate the dark case-study band */
+#case-studies.case-section {
+  background:#f3f6f7 !important;
+  color:#172c38 !important;
+  border-block:1px solid #dce6e9 !important;
+}
+#case-studies .case-intro h2,
+#case-studies .case-intro h3,
+#case-studies .case-feature h3 { color:#172f3b !important; }
+#case-studies .case-intro > p,
+#case-studies .case-feature p { color:#687d89 !important; }
+#case-studies .case-meta { color:#82949d !important; }
+#case-studies .case-meta span:last-child,
+#case-studies .case-kicker,
+#case-studies .case-facts strong,
+#case-studies .case-link { color:#087d70 !important; }
+#case-studies .case-facts span,
+#case-studies .case-bottom small,
+#case-studies .case-disclaimer { color:#81919a !important; }
+#case-studies .case-feature,
+#case-studies .case-feature--camera,
+#case-studies .case-feature--control,
+#case-studies .case-feature--vla,
+#case-studies .case-feature--slam {
+  background:#fff !important;
+  color:#172c38 !important;
+  border:1px solid #dce6e9 !important;
+  border-radius:17px !important;
+  box-shadow:0 5px 18px rgba(20,45,58,.035) !important;
+}
+#case-studies .case-feature:hover {
+  border-color:#b9dcd3 !important;
+  box-shadow:0 12px 26px rgba(20,45,58,.07) !important;
+}
+/* Keep the system diagram as the one intentional dark technical canvas. */
+#case-studies .case-architecture {
+  background:linear-gradient(145deg,#183945,#102d39) !important;
+  border:1px solid #315562 !important;
+}
+#case-studies .case-arch-top,
+#case-studies .case-arch-footer { color:#b2d5d2 !important; }
+#case-studies .case-lanes > div { background:#214651 !important; border-color:#42636b !important; }
+#case-studies .case-lanes strong { color:#f2faf8 !important; }
+#case-studies .case-lanes small { color:#b2c8cb !important; }
+#case-studies .case-bottom { border-top:1px solid #e2eaed !important; }
+@media(max-width:760px) {
+  #case-studies.case-section { padding-block:65px 58px !important; }
+  #case-studies .case-feature,
+  #case-studies .case-feature--camera { padding:22px !important; }
+}
