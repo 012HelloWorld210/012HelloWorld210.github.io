@@ -9,7 +9,7 @@ const translations = {
       language: "语言选择", signals: "能力关键词", actions: "主要操作", facts: "个人概览",
       visual: "机器人系统闭环示意图", filter: "项目筛选", education: "教育背景",
     },
-    nav: ["定位", "技能", "项目", "经历", "成果", "项目说明", "联系"],
+    nav: ["定位", "技能", "案例", "项目", "经历", "成果", "项目说明", "联系"],
     hero: {
       eyebrow: "机器人软件 / 系统工程", name: "梁浩琪",
       lede: "把感知、规划、控制与 VLA 模型真正跑在机器人上：ROS2 真机联调、遥操作数据闭环、SLAM / Nav2 与边缘端部署。",
@@ -94,7 +94,7 @@ const translations = {
       language: "Language selection", signals: "Focus areas", actions: "Primary actions", facts: "Profile overview",
       visual: "Closed-loop robotics system diagram", filter: "Project filters", education: "Education",
     },
-    nav: ["Focus", "Skills", "Projects", "Experience", "Outputs", "Document", "Contact"],
+    nav: ["Focus", "Skills", "Cases", "Projects", "Experience", "Outputs", "Document", "Contact"],
     hero: {
       eyebrow: "Robot Software / Systems Engineering", name: "Liang Haoqi",
       lede: "I bring perception, planning, control, and VLA models onto real robots: ROS2 integration, teleoperation data loops, SLAM / Nav2, and edge deployment.",
