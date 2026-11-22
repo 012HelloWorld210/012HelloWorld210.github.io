@@ -20,7 +20,7 @@ const translations = {
     },
     panel: {
       top: "FROM PERCEPTION TO REAL ROBOT",
-      nodes: [["Perception", "RGB-D / LiDAR / SLAM"], ["Localization & Planning", "定位 / Nav2 / 运动规划"], ["Control & Robot", "ROS2 / SDK / 43 DOF"]],
+      nodes: [["传感器输入", "RGB / RGB-D · LiDAR · IMU"], ["感知与 SLAM", "YOLO11n · RTAB-Map · VINS"], ["导航与执行", "Nav2 · 语义地图 · ROS2 / SDK"]],
       links: [["Perception →", "摄影助理"], ["Control →", "VLA 真机"], ["Edge →", "Thor 部署"]],
     },
     focus: {
@@ -124,7 +124,7 @@ const translations = {
     },
     panel: {
       top: "FROM PERCEPTION TO REAL ROBOT",
-      nodes: [["Perception", "RGB-D / LiDAR / SLAM"], ["Localization & Planning", "Nav2 / Motion planning"], ["Control & Robot", "ROS2 / SDK / 43 DOF"]],
+      nodes: [["Sensor Inputs", "RGB / RGB-D · LiDAR · IMU"], ["Perception & SLAM", "YOLO11n · RTAB-Map · VINS"], ["Navigation & Execution", "Nav2 · Semantic Map · ROS2 / SDK"]],
       links: [["Perception →", "Camera assistant"], ["Control →", "VLA on hardware"], ["Edge →", "Thor deployment"]],
     },
     focus: {
