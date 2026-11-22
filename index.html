@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署</title>
-  <meta name="description" content="梁浩琪的机器人系统工程作品集：ROS2 真机控制、遥操作与 VLA 部署、视觉 SLAM 与 Nav2、MuJoCo 仿真验证。">
-  <meta name="keywords" content="梁浩琪,机器人系统,ROS2,VLA,遥操作,SLAM,Nav2,MuJoCo,具身智能,机器人控制">
+  <meta name="description" content="梁浩琪的机器人系统工程作品集：ROS2 真机控制、遥操作与 VLA 部署、MuJoCo 仿真验证。">
+  <meta name="keywords" content="梁浩琪,机器人系统,ROS2,VLA,遥操作,MuJoCo,具身智能,机器人控制">
   <meta name="author" content="梁浩琪">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.leguanxiaoliang.com/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署">
-  <meta property="og:description" content="从 ROS2 真机控制、遥操作数据闭环到 VLA 部署与 SLAM/Nav2，把算法做成能在机器人上运行的系统。">
+  <meta property="og:description" content="ROS2 真机控制、遥操作数据闭环与 VLA 部署。">
   <meta property="og:url" content="https://www.leguanxiaoliang.com/">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary">
@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="从 ROS2 真机控制、遥操作数据闭环到 VLA 部署与 SLAM/Nav2，把算法做成能在机器人上运行的系统。">
   <meta name="theme-color" content="#eef3f8">
   <link rel="stylesheet" href="/assets/css/home.css?v=20261122-2">
-  <link rel="stylesheet" href="/assets/css/visual-refresh.css?v=20261122-5">
+  <link rel="stylesheet" href="/assets/css/visual-refresh.css?v=20261122-6">
   <link rel="stylesheet" href="/assets/css/case-studies.css?v=20261122-4">
   <script type="application/ld+json">
   {
@@ -70,12 +70,12 @@
         <p class="eyebrow">机器人软件 / 系统工程</p>
         <h1 id="hero-title">梁浩琪</h1>
         <p class="hero-position">机器人系统 · ROS2 控制 · 具身智能部署</p>
-        <p class="hero-lede">聚焦机器人系统落地：ROS2 控制、遥操作、VLA 部署与 SLAM 导航。</p>
+        <p class="hero-lede">聚焦 ROS2 控制、遥操作与 VLA 部署。</p>
         <div class="signal-strip" aria-label="能力关键词">
           <span>ROS2 / ros2_control</span>
           <span>Teleoperation</span>
           <span>VLA Deployment</span>
-          <span>SLAM / Nav2</span>
+          
           <span>MuJoCo / Isaac Sim</span>
         </div>
         <div class="hero-actions" aria-label="主要操作">
@@ -85,7 +85,7 @@
         </div>
         <ul class="quick-facts" aria-label="个人概览">
           <li><strong>硕士 · 推免</strong><span>西安电子科技大学 · 电子信息（专业前 10%）</span></li>
-          <li><strong>机器人全栈</strong><span>ROS2 控制 · 遥操作 · VLA · SLAM</span></li>
+          <li><strong>机器人全栈</strong><span>ROS2 控制 · 遥操作 · VLA</span></li>
           <li><strong>真机闭环</strong><span>星尘 · 众擎 · 广电超智 · 优艾智合</span></li>
         </ul>
       </div>
@@ -97,9 +97,9 @@
             <span class="status-dot" aria-hidden="true"></span>
           </div>
           <div class="stack-diagram">
-            <div class="node node-sense"><span>Perception</span><small>YOLO11n / ONNX / RGB-D / SLAM</small></div>
+            <div class="node node-sense"><span>Perception</span><small>YOLO11n / ONNX / RGB-D</small></div>
             <div class="flow"></div>
-            <div class="node node-plan"><span>Planning</span><small>Nav2 / CBF / 运镜轨迹</small></div>
+            <div class="node node-plan"><span>Planning</span><small>运动规划 / 运镜轨迹</small></div>
             <div class="flow"></div>
             <div class="node node-act"><span>Control &amp; Robot</span><small>ROS2 / SDK / 43 DOF</small></div>
           </div>
@@ -127,12 +127,12 @@
         </article>
         <article class="reveal-card">
           <h3>控制与规划</h3>
-          <p>FK / IK、DLS、加权 IK、轨迹插值、逆动力学补偿、Nav2 与 CBF。</p>
-          <a class="capability-link" href="#go2">Go2 导航 ↗</a>
+          <p>FK / IK、DLS、加权 IK、轨迹插值与逆动力学补偿。</p>
+          
         </article>
         <article class="reveal-card">
           <h3>感知与定位</h3>
-          <p>YOLO、ONNX Runtime、Re-ID、双目深度、RTAB-Map 与 VINS-Fusion。</p>
+          <p>YOLO、ONNX Runtime、Re-ID 与双目深度。</p>
           <a class="capability-link" href="#stardust">目标跟随 ↗</a>
         </article>
         <article class="reveal-card">
@@ -164,15 +164,15 @@
           <ul class="skills-tags">
             <li>FK / IK</li><li>DLS</li><li>加权优化 IK (minc / DAQP)</li>
             <li>五次多项式</li><li>Ruckig</li><li>PD / 阻抗控制</li>
-            <li>MOCRAL 逆动力学</li><li>Nav2</li><li>CBF</li>
+            <li>MOCRAL 逆动力学</li>
           </ul>
         </article>
         <article class="skills-card">
           <h3>感知与定位</h3>
-          <p>检测、跟踪与建图</p>
+          <p>目标检测与跟踪</p>
           <ul class="skills-tags">
             <li>YOLO11n / YOLOv5n</li><li>ONNX Runtime</li><li>Re-ID</li>
-            <li>双目 / 深度</li><li>RTAB-Map</li><li>VINS-Fusion</li><li>TF 坐标对齐</li>
+            <li>双目 / 深度</li><li>TF 坐标对齐</li>
           </ul>
         </article>
         <article class="skills-card">
@@ -248,14 +248,6 @@
             <div class="case-bottom"><div><strong>&lt;20 ms</strong><small><span class="case-zh">优化后的解算延迟</span><span class="case-en">reported solver latency</span></small></div><div><strong>~50 Hz</strong><small><span class="case-zh">任务数据采集频率</span><span class="case-en">task data collection</span></small></div></div>
             <a class="case-link" href="#vla"><span class="case-zh">查看部署链路</span><span class="case-en">View deployment pipeline</span><span aria-hidden="true">↗</span></a>
           </article>
-          <article class="case-feature case-feature--slam">
-            <div class="case-meta"><span>04 / PERCEPTION &amp; NAVIGATION</span><span>UNITREE GO2</span></div>
-            <div class="case-kicker"><span class="case-zh">从视觉里程计到导航</span><span class="case-en">VISUAL ODOMETRY TO NAVIGATION</span></div>
-            <h3><span class="case-zh">SLAM、TF 与 Go2 导航</span><span class="case-en">SLAM, TF and Go2 navigation</span></h3>
-            <div class="case-mini-flow"><span>RGB-D / IMU</span><b>→</b><span>RTAB-Map</span><b>→</b><span>Nav2</span></div>
-            <p><span class="case-zh">在 Jetson、D435i 与 Go2 EDU 上完成建图和导航联调，并开源视觉惯性 SLAM 实现。</span><span class="case-en">Mapping and navigation on Jetson, D435i and Go2 EDU, plus a public visual-inertial SLAM implementation repository.</span></p>
-            <div class="case-bottom"><div><strong>ROS2</strong><small>TF / map / odom</small></div><div><strong>CBF</strong><small><span class="case-zh">仿真安全约束</span><span class="case-en">simulated safety constraint</span></small></div></div>
-            <div class="case-links"><a class="case-link" href="#go2"><span class="case-zh">查看 Go2 项目</span><span class="case-en">View Go2 project</span><span aria-hidden="true">↗</span></a><a class="case-link case-link--secondary" href="https://github.com/012HelloWorld210/visual-inertial-SLAM" target="_blank" rel="noopener noreferrer"><span class="case-zh">公开 SLAM 代码</span><span class="case-en">Public SLAM code</span><span aria-hidden="true">↗</span></a></div>
           </article>
         </div>
         <p class="case-disclaimer"><span class="case-zh">上述为工程结构示意，不是实拍或性能仪表盘。具体数据沿用现有项目记录；公司项目代码与未授权素材不公开。</span><span class="case-en">System diagrams, not photos or live benchmarks. Figures are from existing project descriptions; proprietary code and unapproved media are not published.</span></p>
@@ -286,16 +278,6 @@
           </dl>
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
-        <article class="project-card reveal-card" id="go2" data-tags="robotics">
-          <div class="card-top">
-            <span>02 / PLANNING &amp; CONTROL</span>
-            <strong>Unitree Go2</strong>
-          </div>
-          <h3>Go2 视觉 SLAM、导航与 CBF 安全控制</h3>
-          <p>在 Jetson、Go2 EDU 与 D435i 上集成 RTAB-Map 和 Nav2，完成建图、TF 对齐与导航联调；在 Isaac Sim 中验证 CBF 避障约束。</p>
-          <div class="project-diagram" aria-label="Go2 导航系统流程图"><span>RGB-D / IMU</span><span>RTAB-Map / VINS</span><span>MAP + TF 对齐</span><span>Nav2 + CBF</span><span>Unitree Go2</span></div>
-          <dl class="project-details"><div><dt>负责内容</dt><dd>部署 RTAB-Map，完成 RGB-D / IMU 建图及 map / odom / base_link / camera_link 对齐；使用 Nav2 实现定位、规划与路径跟踪。</dd></div><div><dt>验证重点</dt><dd>Go2 真机上的定位、路径执行与动态避障；仿真中引入 CBF 风险约束验证安全策略。</dd></div></dl>
-          <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
         <article class="project-card reveal-card" id="vla" data-tags="vla">
           <div class="card-top">
