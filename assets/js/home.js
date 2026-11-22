@@ -1,8 +1,8 @@
 const translations = {
   zh: {
     lang: "zh-CN",
-    title: "梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署",
-    description: "梁浩琪的机器人系统作品集，涵盖 ROS2 控制、遥操作与 VLA 部署。",
+    title: "梁浩琪 | 机器人系统、SLAM 导航与具身智能",
+    description: "SLAM 建图与导航、ROS2 控制、遥操作与 VLA 部署。",
     share: "机器人系统开发：ROS2 控制、遥操作与 VLA 部署。",
     labels: {
       skip: "跳到正文", nav: "主导航", home: "返回首页", open: "打开导航", close: "关闭导航",
@@ -12,24 +12,24 @@ const translations = {
     nav: ["定位", "技能", "案例", "项目", "经历", "成果", "项目说明", "联系"],
     hero: {
       eyebrow: "机器人软件 / 系统工程", name: "梁浩琪",
-      position: "机器人系统 · ROS2 控制 · 具身智能部署",
-      lede: "聚焦 ROS2 控制、遥操作与 VLA 部署。",
-      signals: ["ROS2 / ros2_control", "Teleoperation", "VLA Deployment", "MuJoCo / Isaac Sim"],
+      position: "机器人系统 · SLAM 定位导航 · 具身智能部署",
+      lede: "围绕环境感知、SLAM 建图、定位导航与机器人执行，构建从算法到真机的系统链路。",
+      signals: ["SLAM / RTAB-Map", "ROS2 / Nav2", "Teleoperation / VLA", "MuJoCo / Isaac Sim"],
       actions: ["查看项目", "项目说明", "GitHub"],
       facts: [["硕士 · 推免", "西安电子科技大学 · 电子信息（专业前 10%）"], ["机器人全栈", "ROS2 控制 · 遥操作 · VLA"], ["真机闭环", "星尘 · 众擎 · 广电超智 · 优艾智合"]],
     },
     panel: {
       top: "FROM PERCEPTION TO REAL ROBOT",
-      nodes: [["Perception", "YOLO11n / ONNX / RGB-D"], ["Planning", "运动规划 / 运镜轨迹"], ["Control & Robot", "ROS2 / SDK / 43 DOF"]],
+      nodes: [["Perception", "RGB-D / LiDAR / SLAM"], ["Localization & Planning", "定位 / Nav2 / 运动规划"], ["Control & Robot", "ROS2 / SDK / 43 DOF"]],
       links: [["Perception →", "摄影助理"], ["Control →", "VLA 真机"], ["Edge →", "Thor 部署"]],
     },
     focus: {
       eyebrow: "01 / SYSTEM CAPABILITIES", title: "机器人系统能力",
-      intro: "覆盖感知、规划、控制与部署，并以项目验证工程能力。",
+      intro: "覆盖环境感知、SLAM 建图、定位导航、运动控制与边缘部署。",
       cards: [
         ["机器人系统", "ROS2、ros2_control、传感器接入及上位机与机器人 SDK 联调。", "摄影助理 ↗"],
         ["控制与规划", "FK / IK、DLS、加权 IK、轨迹插值与逆动力学补偿。", "控制项目 ↗"],
-        ["感知与定位", "YOLO、ONNX Runtime、Re-ID 与双目深度。", "目标跟随 ↗"],
+        ["SLAM、感知与定位", "激光 / RGB-D 建图、视觉惯性定位、目标检测与跟踪。", "SLAM 与导航项目 ↗"],
         ["具身智能与边缘端", "遥操作数据采集、VLA 推理、仿真验证及 Jetson / RK3588 部署。", "VLA 部署 ↗"],
       ],
     },
@@ -39,7 +39,7 @@ const translations = {
       cards: [
         ["语言与系统", "工程实现与真机通信", ["Python", "C++", "ROS2 Humble", "ros2_control", "ZMQ", "React", "FastAPI", "WebRTC", "Git"]],
         ["机器人算法", "运动学、动力学与控制", ["FK / IK", "DLS", "加权优化 IK (minc / DAQP)", "五次多项式", "Ruckig", "PD / 阻抗控制", "MOCRAL 逆动力学"]],
-        ["感知与定位", "目标检测与跟踪", ["YOLO11n / YOLOv5n", "ONNX Runtime", "Re-ID", "双目 / 深度", "TF 坐标对齐"]],
+        ["感知与定位", "建图、定位、重定位与目标感知", ["RTAB-Map", "VINS-Mono", "VINS-Fusion", "RGB-D / D435i", "LiDAR / IMU", "ROS2 TF", "Nav2", "YOLO11n / YOLOv5n", "ONNX Runtime", "Re-ID"]],
         ["仿真与部署", "先仿真验证，再上真机", ["MuJoCo", "Isaac Sim", "ManiSkill", "PyBullet", "ONNX / TensorRT", "Docker", "JetPack", "Jetson Orin / Thor", "RK3588"]],
         ["具身智能", "遥操作到模型执行", ["π0.5 / OpenPI", "SmolVLA", "MemoryVLA / evo-rl", "数据采集与转换", "归一化", "远程推理"]],
         ["研发流程", "可复用的 Agent 协作与验证", ["Claude Code / Codex", "Git Worktree", "接口契约", "回归测试", "Skills 沉淀", "日志与回放验证"]],
@@ -47,8 +47,8 @@ const translations = {
     },
     projects: {
       title: "代表项目",
-      intro: "涵盖机器人应用、运动控制、VLA 部署与边缘端运行。",
-      filters: ["全部", "机器人系统", "具身智能", "边缘部署"],
+      intro: "涵盖 SLAM 建图与导航、机器人应用、运动控制、VLA 部署与边缘端运行。",
+      filters: ["全部", "机器人系统", "SLAM / 导航", "具身智能", "边缘部署"],
       detailLabels: ["负责内容", "验证重点"], note: "系统示意 · 非实拍",
       items: [
         { role: "星尘智能", title: "机器人摄影助理：全栈应用与真机执行", summary: "开发 React / FastAPI 摄影助理，连接手机 WebRTC 取景、目标跟随、运镜执行与视频回传；经 MuJoCo + Mock 验证后部署至 RK3588，并完成真机 SDK 联调。", details: ["开发 React 工作台与 FastAPI 后端；将 HDF5 25 维动作转换为 SDK 路点，并按底盘位姿进行 SE(2) 重定位；接入 YOLO11n / ONNX 与 Re-ID 跟踪。", "MuJoCo + Mock 回归覆盖路点、调度、停止与状态回传；跟随 V1 通过 109 项测试，真机完成推进、拉远、侧移和环绕 4 类运镜。"], diagram: "摄影助理系统流程图" },        { role: "广电运通·超智机器人", title: "天工机器人遥操作与 VLA 真机部署", summary: "打通遥操作采集、数据处理、模型训练、远程推理与真机执行；通过 ZMQ 隔离 ROS2 与解算环境，将解算延迟从约 50 ms 降至 20 ms 以内。",  details: ["将天工 URDF 接入 XRobotToolkit，对齐关节与动作空间；拆分动作和图像传输，适配 ROS2 话题及 π0.5 / OpenPI 推理接口。", "采集银行卡抓取、盖章递交和刷卡任务；单任务约 100 条、约 50 Hz，盖章递交初测 20 次，核心流程完成率约 80%。"], diagram: "具身智能系统流程图" },
@@ -72,6 +72,7 @@ const translations = {
             validationStats: [["53", "自动化测试通过"], ["0 / 3", "策略自主抓取成功"], ["未执行", "SO-101 真机闭环"]],
             validationNote: "SO-100 训练 checkpoint 跨域适配到 SO-101；策略曾未接近目标物体。GR00T 本轮只完成离线动作块推理。夹爪双垫实验位于独立 PR #15，尚未合并。"
           } },
+                { role: "Go2 EDU / Astribot T1", title: "SLAM 定位导航与语义地图导览交互", summary: "结合 Go2 上的 RGB-D SLAM / Nav2 集成经验与 Astribot T1 的语义地图导览实践，覆盖建图、定位导航、语义点位及语音动作编排。", details: ["Go2 EDU + D435i + Jetson Orin Nano：集成 RTAB-Map 0.21.10，联调 RGB-D 建图、map / odom / base_link 及 Nav2 定位导航。", "Astribot T1：辅助验证激光建图、地图编辑和重定位，参与导览点位、语音及动作素材配置、串并行任务编排与下发。"], detailLabels: ["SLAM 积累", "导览参与"], diagram: "SLAM 到语义地图导览的技术链路" },
         { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 部署 YOLOv5n、Whisper.cpp 与 Qwen，并通过 ONNX / TensorRT 加速检测，连接语音、视觉、决策与运动执行。",  bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
       ],
     },
@@ -104,7 +105,7 @@ const translations = {
     footer: "© 2026 梁浩琪",
   },
   en: {
-    lang: "en", title: "Liang Haoqi | Robotics Systems, ROS2 Control & VLA Deployment",
+    lang: "en", title: "Liang Haoqi | SLAM Navigation, Robotics & Embodied AI",
     description: "Liang Haoqi's robotics portfolio: ROS2 control on real robots, teleoperation, VLA deployment, and MuJoCo validation.",
     share: "Robotics engineering across ROS2 control, teleoperation data, and VLA deployment.",
     labels: {
@@ -115,24 +116,24 @@ const translations = {
     nav: ["Focus", "Skills", "Cases", "Projects", "Experience", "Outputs", "Document", "Contact"],
     hero: {
       eyebrow: "Robotics Systems Engineering", name: "Liang Haoqi",
-      position: "ROS2 Control · Teleoperation · Embodied AI",
-      lede: "I work on ROS2 control, teleoperation, and VLA deployment for robot systems.",
+      position: "Robotics Systems · SLAM Navigation · Embodied AI",
+      lede: "Working across mapping, localization, robot control, teleoperation and VLA deployment.",
       signals: ["ROS2 / ros2_control", "Teleoperation", "VLA Deployment", "MuJoCo / Isaac Sim"],
       actions: ["View Projects", "Document", "GitHub"],
       facts: [["M.Eng. · Recommended", "Xidian University · Electronics (top 10%)"], ["Full-stack Robotics", "ROS2 control · Teleoperation · VLA"], ["Real-Robot Loops", "Stardust · EngineAI · GRG · Youibot"]],
     },
     panel: {
       top: "FROM PERCEPTION TO REAL ROBOT",
-      nodes: [["Perception", "YOLO11n / ONNX / RGB-D"], ["Planning", "Motion planning / Camera paths"], ["Control & Robot", "ROS2 / SDK / 43 DOF"]],
+      nodes: [["Perception", "RGB-D / LiDAR / SLAM"], ["Localization & Planning", "Nav2 / Motion planning"], ["Control & Robot", "ROS2 / SDK / 43 DOF"]],
       links: [["Perception →", "Camera assistant"], ["Control →", "VLA on hardware"], ["Edge →", "Thor deployment"]],
     },
     focus: {
       eyebrow: "01 / SYSTEM CAPABILITIES", title: "Capabilities connected to real projects.",
-      intro: "I connect perception, planning, control, and deployment in testable robot systems.",
+      intro: "SLAM mapping, localization, navigation, control and edge deployment.",
       cards: [
         ["Robot Systems", "ROS2, ros2_control, sensor integration, and SDK-connected operator interfaces.", "Camera assistant ↗"],
         ["Planning & Control", "FK / IK, DLS, weighted IK, trajectory interpolation, and inverse dynamics.", "Control work ↗"],
-        ["Perception & Localization", "YOLO, ONNX Runtime, Re-ID, and stereo depth.", "Person following ↗"],
+        ["SLAM, Perception & Localization", "LiDAR / RGB-D mapping, visual-inertial localization, object detection and tracking.", "SLAM & navigation ↗"],
         ["Embodied & Edge AI", "Teleoperation data, VLA inference, simulation, and Jetson / RK3588 deployment.", "VLA deployment ↗"],
       ],
     },
@@ -142,7 +143,7 @@ const translations = {
       cards: [
         ["Languages & Systems", "Implementation and real-robot communication", ["Python", "C++", "ROS2 Humble", "ros2_control", "ZMQ", "React", "FastAPI", "WebRTC", "Git"]],
         ["Robot Algorithms", "Kinematics, dynamics, and control", ["FK / IK", "DLS", "Weighted IK (minc / DAQP)", "Quintic spline", "Ruckig", "PD / impedance", "MOCRAL inverse dynamics"]],
-        ["Perception & Localization", "Detection and tracking", ["YOLO11n / YOLOv5n", "ONNX Runtime", "Re-ID", "Stereo / depth", "TF alignment"]],
+        ["Perception & Localization", "Mapping, localization and object perception", ["RTAB-Map", "VINS-Mono", "VINS-Fusion", "RGB-D / D435i", "LiDAR / IMU", "ROS2 TF", "Nav2", "YOLO11n / YOLOv5n", "ONNX Runtime", "Re-ID"]],
         ["Simulation & Deployment", "Validate in simulation, then run on hardware", ["MuJoCo", "Isaac Sim", "ManiSkill", "PyBullet", "ONNX / TensorRT", "Docker", "JetPack", "Jetson Orin / Thor", "RK3588"]],
         ["Embodied AI", "From teleoperation to model execution", ["π0.5 / OpenPI", "SmolVLA", "MemoryVLA / evo-rl", "Data collection & conversion", "Normalization", "Remote inference"]],
         ["R&D Workflow", "Reusable agent collaboration and validation", ["Claude Code / Codex", "Git Worktree", "Interface contracts", "Regression tests", "Reusable skills", "Log & replay validation"]],
@@ -150,8 +151,8 @@ const translations = {
     },
     projects: {
       title: "Selected Projects",
-      intro: "Robot applications, motion control, VLA deployment, and edge inference.",
-      filters: ["All", "Robot Systems", "Embodied AI", "Edge Deployment"],
+      intro: "SLAM mapping and navigation, robot applications, control, VLA and edge deployment.",
+      filters: ["All", "Robot Systems", "SLAM / Navigation", "Embodied AI", "Edge Deployment"],
       detailLabels: ["My role", "Validation"], note: "System diagram · not project footage",
       items: [
         { role: "星尘智能", title: "Robot Camera Assistant: Full-Stack App & Hardware Execution", summary: "Built a React / FastAPI camera assistant for WebRTC preview, person following, camera moves, and video return; validated with MuJoCo + mock execution, then deployed to RK3588 and integrated with the robot SDK.", details: ["Built the React workbench and FastAPI backend; converted 25-D HDF5 actions into SDK waypoints with SE(2) relocation, and integrated YOLO11n / ONNX and Re-ID tracking.", "MuJoCo + mock regression covered waypoint conversion, scheduling, stop and status return. Following V1 passed 109 tests; hardware supports push-in, pull-out, lateral and orbit moves."], diagram: "Camera assistant system diagram" },        { role: "GRG Superbrain Robotics", title: "Tiangong Teleoperation & VLA Deployment on Hardware", summary: "Connected teleoperation data, preprocessing, policy training, remote inference and robot execution; used ZMQ to isolate ROS2 and reduced solver latency from about 50 ms to under 20 ms.", details: ["Integrated the Tiangong URDF into XRobotToolkit with aligned joint naming and action space; separated binary action push from JPEG image transport; adapted ROS2 topic mapping, action clipping, and field alignment for π0.5 / OpenPI models.", "Collected card-following grasp, paper stamping and handover, and card-swipe tasks (about 100 episodes per task at about 50 Hz); the stamping-and-handover task reached about 80% core-flow completion in 20 initial trials."], diagram: "Embodied AI system diagram" },
@@ -175,6 +176,7 @@ const translations = {
             validationStats: [["53", "Automated tests passed"], ["0 / 3", "Autonomous policy grasps"], ["Not run", "SO-101 real-hardware loop"]],
             validationNote: "The policy checkpoint was trained on SO-100 and adapted cross-domain to SO-101; the policy did not approach the target object in the short test. GR00T was tested only for offline action-chunk inference. Dual-pad results are in separate PR #15, not yet merged."
           } },
+                { role: "Go2 EDU / Astribot T1", title: "SLAM Navigation & Semantic-Map Guided Tours", summary: "Combines earlier RGB-D SLAM / Nav2 integration on Go2 with assisted semantic-map guided-tour workflows on Astribot T1. The platforms and contributions are distinct.", details: ["Go2 EDU + D435i + Jetson Orin Nano: integrated RTAB-Map 0.21.10, RGB-D mapping, map / odom / base_link frame alignment and Nav2 localization/navigation.", "Astribot T1: assisted LiDAR mapping, map editing, relocalization and navigation checks; configured waypoints, speech and motion assets, serial / parallel tour tasks and task dispatch."], detailLabels: ["SLAM work", "Tour contribution"], diagram: "SLAM to semantic-map guided-tour workflow" },
         { role: "Team Lead", title: "Multimodal Embodied AI System", summary: "Deployed YOLOv5n, Whisper.cpp, and Qwen on Jetson Orin Nano, accelerated detection from PyTorch through ONNX to TensorRT, and connected voice commands, vision, model decisions, and motion.", bullets: ["Integrated a multimodal agent workflow", "Optimized lightweight deployment for robot tasks"] },
       ],
     },
@@ -279,7 +281,8 @@ const applyLanguage = (language) => {
     if (!card) return;
     item.querySelector("h3").textContent = card[0];
     item.querySelector("p").textContent = card[1];
-    item.querySelectorAll(".skills-tags li").forEach((tag, tagIndex) => { tag.textContent = card[2][tagIndex]; });
+    const tags = item.querySelector(".skills-tags");
+    tags.replaceChildren(...card[2].map((name) => { const li = document.createElement("li"); li.textContent = name; return li; }));
   });
   setText("#experience-title", copy.experience.title);
   document.querySelectorAll(".timeline-item").forEach((item, index) => {
@@ -300,7 +303,7 @@ const applyLanguage = (language) => {
     const summary = item.querySelector("p");
     if (summary) summary.textContent = project.summary;
     item.querySelectorAll(".project-details div").forEach((detail, detailIndex) => {
-      detail.querySelector("dt").textContent = copy.projects.detailLabels[detailIndex];
+      detail.querySelector("dt").textContent = (project.detailLabels || copy.projects.detailLabels)[detailIndex] || "";
       detail.querySelector("dd").textContent = project.details[detailIndex];
     });
     const diagram = item.querySelector(".project-diagram");
