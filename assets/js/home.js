@@ -28,9 +28,9 @@ const translations = {
       intro: "覆盖感知、规划、控制与部署，并以项目验证工程能力。",
       cards: [
         ["机器人系统", "ROS2、ros2_control、传感器接入及上位机与机器人 SDK 联调。", "摄影助理 ↗"],
-        ["控制与规划", "FK / IK、DLS、加权优化 IK、五次多项式插值、MOCRAL 逆动力学补偿、Nav2 与 CBF。", "Go2 导航 ↗"],
-        ["感知与定位", "YOLO11n / ONNX Runtime、Re-ID 三层候选、双目深度、RTAB-Map / VINS-Fusion。", "目标跟随 ↗"],
-        ["具身智能与边缘端", "遥操作采集、π0.5 / OpenPI / SmolVLA 推理、MuJoCo / Isaac Sim 验证、Jetson / RK3588 部署。", "VLA 部署 ↗"],
+        ["控制与规划", "FK / IK、DLS、加权 IK、轨迹插值、逆动力学补偿、Nav2 与 CBF。", "Go2 导航 ↗"],
+        ["感知与定位", "YOLO、ONNX Runtime、Re-ID、双目深度、RTAB-Map 与 VINS-Fusion。", "目标跟随 ↗"],
+        ["具身智能与边缘端", "遥操作数据采集、VLA 推理、仿真验证及 Jetson / RK3588 部署。", "VLA 部署 ↗"],
       ],
     },
     skills: {
@@ -98,7 +98,7 @@ const translations = {
     nav: ["Focus", "Skills", "Cases", "Projects", "Experience", "Outputs", "Document", "Contact"],
     hero: {
       eyebrow: "Robot Software / Systems Engineering", name: "Liang Haoqi",
-      lede: "I bring perception, planning, control, and VLA models onto real robots: ROS2 integration, teleoperation data loops, SLAM / Nav2, and edge deployment.",
+      lede: "I build robot systems across ROS2 control, teleoperation, VLA deployment, and SLAM navigation.",
       signals: ["ROS2 / ros2_control", "Teleoperation", "VLA Deployment", "SLAM / Nav2", "MuJoCo / Isaac Sim"],
       actions: ["View Projects", "Document", "GitHub"],
       facts: [["M.Eng. · Recommended", "Xidian University · Electronics (top 10%)"], ["Full-stack Robotics", "ROS2 control · Teleoperation · VLA · SLAM"], ["Real-Robot Loops", "Stardust · EngineAI · GRG · Youibot"]],
@@ -110,7 +110,7 @@ const translations = {
     },
     focus: {
       eyebrow: "01 / SYSTEM CAPABILITIES", title: "Capabilities connected to real projects.",
-      intro: "Robot systems are my core focus. I connect perception, planning, control, and deployment into a system that can be tested and verified.",
+      intro: "I connect perception, planning, control, and deployment in testable robot systems.",
       cards: [
         ["Robot Systems", "ROS2 / ros2_control, hardware interfaces, TF and sensor integration; React + FastAPI front ends with SDK integration.", "Camera assistant ↗"],
         ["Planning & Control", "FK / IK, DLS, weighted optimization IK, quintic interpolation, MOCRAL inverse dynamics, Nav2 and CBF.", "Go2 navigation ↗"],
@@ -120,7 +120,7 @@ const translations = {
     },
     skills: {
       eyebrow: "02 / SKILLS", title: "Tech Stack",
-      intro: "Organized by what can actually run on a robot: languages, robot algorithms, simulation and deployment, and embodied AI pipelines.",
+      intro: "Core tools and methods, organized by engineering workflow.",
       cards: [
         ["Languages & Systems", "Implementation and real-robot communication", ["Python", "C++", "ROS2 Humble", "ros2_control", "ZMQ", "React", "FastAPI", "WebRTC", "Git"]],
         ["Robot Algorithms", "Kinematics, dynamics, and control", ["FK / IK", "DLS", "Weighted IK (minc / DAQP)", "Quintic spline", "Ruckig", "PD / impedance", "MOCRAL inverse dynamics", "Nav2", "CBF"]],
@@ -131,8 +131,8 @@ const translations = {
       ],
     },
     projects: {
-      title: "Engineering the complete robot loop.",
-      intro: "Projects across the real robot pipeline: target perception, localization and navigation, control execution, and embodied AI deployment.",
+      title: "Selected Projects",
+      intro: "Robot applications, motion control, VLA deployment, and edge inference.",
       filters: ["All", "Robot Systems", "Embodied AI", "Edge Deployment"],
       detailLabels: ["My role", "Validation"], note: "System diagram · not project footage",
       items: [
@@ -153,7 +153,7 @@ const translations = {
       ],
     },
     outputs: {
-      title: "Research & Outputs", intro: "Research, intellectual property, and competition results, all as first student author.",
+      title: "Research & Outputs", intro: "Research, intellectual property, and competition awards.",
       cards: [
         ["Semantic Communications with Zero-Shot Learning for Multi-modal Transmission", "First student author · EI indexed"],
         ["UAV safety control using semantic uncertainty and dynamic safety distance", "Invention patent · first student author"],
@@ -164,11 +164,11 @@ const translations = {
     education: "Xidian University · M.Eng. in Electronic Information (recommended admission, top 10%) / Lanzhou University of Technology · B.Eng. in Automation (rank 10/229, provincial outstanding graduate)",
     download: {
       eyebrow: "06 / DOCUMENT", title: "Project Overview",
-      intro: "A 48-page record of internships and projects at 星尘智能, EngineAI, and GRG Superbrain, with real-robot video stills.",
+      intro: "A 48-page record of project work, technical design, and real-robot validation.",
       actions: ["Download PDF · 8.6 MB", "Download PPTX · 317 MB"],
-      note: "The PPTX includes 20 real-robot videos and is large; the PDF is the same content in a static format.",
+      note: "The PPTX includes robot videos and is large. The PDF is recommended.",
     },
-    contact: { title: "Let's build robot systems that work in the real world.", actions: ["2693075546@qq.com", "GitHub"] },
+    contact: { title: "Robotics Systems Engineering", actions: ["2693075546@qq.com", "GitHub"] },
     footer: "© 2026 Liang Haoqi",
   },
 };
