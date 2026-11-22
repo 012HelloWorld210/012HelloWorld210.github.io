@@ -46,7 +46,9 @@ h1 { margin-bottom: 8px; font-size: 6.25rem; font-weight: 810; line-height: 1.08
 .hero-lede { max-width: 610px; margin-bottom: 0; font-size: 1.45rem; line-height: 1.6; font-weight: 520; text-wrap: balance; }
 .signal-strip { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }
 .signal-strip span { padding: 5px 10px; color: #3f625a; background: #edf4f0; border: 1px solid #dfeae4; border-radius: 6px; font-size: .76rem; font-weight: 680; }
-.hero-actions, .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
+.hero-actions, .contact-actions, .download-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
+.download-actions { margin-top: 0; }
+.download-note { margin: 14px 0 0; color: var(--muted); font-size: .86rem; }
 .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; padding: 10px 19px; border: 1px solid var(--ink); border-radius: 8px; font-weight: 720; transition: transform .18s ease, background .18s ease, box-shadow .18s ease; }
 .button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(24,38,36,.12); }
 .button.primary { background: var(--ink); color: #fff; box-shadow: 0 6px 15px rgba(28,43,41,.12); }

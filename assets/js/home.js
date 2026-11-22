@@ -9,7 +9,7 @@ const translations = {
       language: "语言选择", signals: "能力关键词", actions: "主要操作", facts: "个人概览",
       visual: "机器人系统闭环示意图", filter: "项目筛选", education: "教育背景",
     },
-    nav: ["定位", "项目", "经历", "成果", "联系"],
+    nav: ["定位", "项目", "经历", "成果", "项目说明", "联系"],
     hero: {
       eyebrow: "机器人软件 / 系统工程", name: "梁浩琪",
       lede: "让感知、规划、控制与模型真正运行在机器人上，并形成可验证的真机闭环。",
@@ -63,6 +63,12 @@ const translations = {
       ],
     },
     education: "西安电子科技大学 · 电子信息硕士 / 兰州理工大学 · 自动化本科",
+    download: {
+      eyebrow: "05 / DOCUMENT", title: "项目说明",
+      intro: "48 页完整记录：星尘智能、众擎、广电超智等实习与项目，含真机视频截图。",
+      actions: ["下载 PDF · 8.6 MB", "下载 PPTX · 317 MB"],
+      note: "PPTX 内含 20 段真机视频，文件较大；PDF 为同一内容的静态版，建议先看 PDF。",
+    },
     contact: { title: "一起把机器人系统做成可运行的现实。", actions: ["2693075546@qq.com", "GitHub"] },
     footer: "© 2026 梁浩琪",
   },
@@ -75,7 +81,7 @@ const translations = {
       language: "Language selection", signals: "Focus areas", actions: "Primary actions", facts: "Profile overview",
       visual: "Closed-loop robotics system diagram", filter: "Project filters", education: "Education",
     },
-    nav: ["Focus", "Projects", "Experience", "Outputs", "Contact"],
+    nav: ["Focus", "Projects", "Experience", "Outputs", "Document", "Contact"],
     hero: {
       eyebrow: "Robot Software / Systems Engineering", name: "Liang Haoqi",
       lede: "I bring perception, planning, control, and models onto real robots, then close the loop with feedback from hardware.",
@@ -129,6 +135,12 @@ const translations = {
       ],
     },
     education: "Xidian University · M.Eng. in Electronic Information / Lanzhou University of Technology · B.Eng. in Automation",
+    download: {
+      eyebrow: "05 / DOCUMENT", title: "Project Overview",
+      intro: "A 48-page record of internships and projects at 星尘智能, EngineAI, and GRG Superbrain, with real-robot video stills.",
+      actions: ["Download PDF · 8.6 MB", "Download PPTX · 317 MB"],
+      note: "The PPTX includes 20 real-robot videos and is large; the PDF is the same content in a static format.",
+    },
     contact: { title: "Let's build robot systems that work in the real world.", actions: ["2693075546@qq.com", "GitHub"] },
     footer: "© 2026 Liang Haoqi",
   },
@@ -229,6 +241,11 @@ const applyLanguage = (language) => {
     item.querySelector("p").textContent = copy.outputs.cards[index][1];
   });
   setText(".education-inner p", copy.education);
+  setText("#download .eyebrow", copy.download.eyebrow);
+  setText("#download-title", copy.download.title);
+  setText("#download .output-intro", copy.download.intro);
+  document.querySelectorAll(".download-actions .button").forEach((item, index) => { item.textContent = copy.download.actions[index]; });
+  setText(".download-note", copy.download.note);
   setText("#contact-title", copy.contact.title);
   document.querySelectorAll(".contact-actions .button").forEach((item, index) => { item.textContent = copy.contact.actions[index]; });
   setText(".site-footer span", copy.footer);
