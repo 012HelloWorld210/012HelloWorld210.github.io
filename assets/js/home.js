@@ -12,7 +12,8 @@ const translations = {
     nav: ["定位", "技能", "案例", "项目", "经历", "成果", "项目说明", "联系"],
     hero: {
       eyebrow: "机器人软件 / 系统工程", name: "梁浩琪",
-      lede: "把感知、规划、控制与 VLA 模型真正跑在机器人上：ROS2 真机联调、遥操作数据闭环、SLAM / Nav2 与边缘端部署。",
+      position: "机器人系统 · ROS2 控制 · 具身智能部署",
+      lede: "聚焦机器人系统落地：ROS2 控制、遥操作、VLA 部署与 SLAM 导航。",
       signals: ["ROS2 / ros2_control", "Teleoperation", "VLA Deployment", "SLAM / Nav2", "MuJoCo / Isaac Sim"],
       actions: ["查看项目", "项目说明", "GitHub"],
       facts: [["硕士 · 推免", "西安电子科技大学 · 电子信息（专业前 10%）"], ["机器人全栈", "ROS2 控制 · 遥操作 · VLA · SLAM"], ["真机闭环", "星尘 · 众擎 · 广电超智 · 优艾智合"]],
@@ -23,10 +24,10 @@ const translations = {
       links: [["Perception →", "摄影助理"], ["Planning →", "Go2 导航"], ["Control →", "VLA 真机"], ["Edge →", "Thor 部署"]],
     },
     focus: {
-      eyebrow: "01 / SYSTEM CAPABILITIES", title: "从感知到真机，能力要有项目对应。",
-      intro: "以机器人系统为主轴，把感知、规划、控制与部署连成可调试、可验证的工程闭环。",
+      eyebrow: "01 / SYSTEM CAPABILITIES", title: "机器人系统能力",
+      intro: "覆盖感知、规划、控制与部署，并以项目验证工程能力。",
       cards: [
-        ["机器人系统", "ROS2 / ros2_control、硬件接口、TF 与传感器集成；React + FastAPI 上位机与 SDK 联调。", "摄影助理 ↗"],
+        ["机器人系统", "ROS2、ros2_control、传感器接入及上位机与机器人 SDK 联调。", "摄影助理 ↗"],
         ["控制与规划", "FK / IK、DLS、加权优化 IK、五次多项式插值、MOCRAL 逆动力学补偿、Nav2 与 CBF。", "Go2 导航 ↗"],
         ["感知与定位", "YOLO11n / ONNX Runtime、Re-ID 三层候选、双目深度、RTAB-Map / VINS-Fusion。", "目标跟随 ↗"],
         ["具身智能与边缘端", "遥操作采集、π0.5 / OpenPI / SmolVLA 推理、MuJoCo / Isaac Sim 验证、Jetson / RK3588 部署。", "VLA 部署 ↗"],
@@ -34,7 +35,7 @@ const translations = {
     },
     skills: {
       eyebrow: "02 / SKILLS", title: "技能栈",
-      intro: "按“能落地到真机”的标准组织：语言、机器人算法、仿真与部署、具身智能链路。",
+      intro: "按开发环节整理核心工具与算法。",
       cards: [
         ["语言与系统", "工程实现与真机通信", ["Python", "C++", "ROS2 Humble", "ros2_control", "ZMQ", "React", "FastAPI", "WebRTC", "Git"]],
         ["机器人算法", "运动学、动力学与控制", ["FK / IK", "DLS", "加权优化 IK (minc / DAQP)", "五次多项式", "Ruckig", "PD / 阻抗控制", "MOCRAL 逆动力学", "Nav2", "CBF"]],
@@ -45,8 +46,8 @@ const translations = {
       ],
     },
     projects: {
-      title: "把完整链路做成可运行的系统。",
-      intro: "围绕真实机器人链路组织项目：目标感知、定位导航、控制执行与具身智能部署。",
+      title: "代表项目",
+      intro: "涵盖机器人应用、运动控制、VLA 部署与边缘端运行。",
       filters: ["全部", "机器人系统", "具身智能", "边缘部署"],
       detailLabels: ["负责内容", "验证重点"], note: "系统示意 · 非实拍",
       items: [
@@ -67,7 +68,7 @@ const translations = {
       ],
     },
     outputs: {
-      title: "研究与成果", intro: "论文、知识产权与竞赛成果，均为学生一作。",
+      title: "研究与成果", intro: "论文、知识产权与竞赛获奖记录。",
       cards: [
         ["Semantic Communications with Zero-Shot Learning for Multi-modal Transmission", "学生一作 · EI 检索"],
         ["基于语义不确定性与动态安全距离的无人机安全控制方法", "发明专利 · 学生一作"],
@@ -78,11 +79,11 @@ const translations = {
     education: "西安电子科技大学 · 电子信息硕士（推免，专业前 10%） / 兰州理工大学 · 自动化（专业排名 10/229，省优秀毕业生）",
     download: {
       eyebrow: "06 / DOCUMENT", title: "项目说明",
-      intro: "48 页完整记录：星尘智能、众擎、广电超智等实习与项目，含真机视频截图。",
+      intro: "48 页项目记录，包含实习经历、技术方案与真机验证材料。",
       actions: ["下载 PDF · 8.6 MB", "下载 PPTX · 317 MB"],
-      note: "PPTX 内含 20 段真机视频，文件较大；PDF 为同一内容的静态版，建议先看 PDF。",
+      note: "PPTX 含真机视频，文件较大；建议优先查看 PDF。",
     },
-    contact: { title: "一起把机器人系统做成可运行的现实。", actions: ["2693075546@qq.com", "GitHub"] },
+    contact: { title: "机器人系统工程与开发", actions: ["2693075546@qq.com", "GitHub"] },
     footer: "© 2026 梁浩琪",
   },
   en: {
@@ -210,6 +211,7 @@ const applyLanguage = (language) => {
   document.querySelectorAll(".nav-links a").forEach((item, index) => { item.textContent = copy.nav[index]; });
   setText(".hero .eyebrow", copy.hero.eyebrow);
   setText("#hero-title", copy.hero.name);
+  setText(".hero-position", copy.hero.position);
   setText(".hero-lede", copy.hero.lede);
   document.querySelectorAll(".signal-strip span").forEach((item, index) => { item.textContent = copy.hero.signals[index]; });
   document.querySelectorAll(".hero-actions .button").forEach((item, index) => { item.textContent = copy.hero.actions[index]; });
