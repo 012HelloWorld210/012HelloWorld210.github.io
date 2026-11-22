@@ -37,7 +37,7 @@
   }
   </script>
   <link rel="stylesheet" href="/assets/css/site-polish.css?v=20261122-3">
-  <link rel="stylesheet" href="/assets/css/site-theme-final.css?v=20261122-1">
+  <link rel="stylesheet" href="/assets/css/site-theme-final.css?v=20261122-2">
 </head>
 <body>
   <a class="skip-link" href="#main">跳到正文</a>
@@ -294,10 +294,11 @@
             <span>03 / EDGE AI &amp; MOTION OPTIMIZATION · 2025.12 – 至今</span>
             <strong>Jetson Thor · SO-101</strong>
           </div>
-          <h3>SO-101 机械臂动作轨迹优化与边缘端部署</h3>
-          <p>基于 Jetson Thor 构建轻量机械臂具身操作验证链路，围绕 VLA 动作块衔接、执行时序调度与关节轨迹平滑开展优化，并面向 SO-101 仿真及真机验证。</p>
+          <h3>SO-101 机械臂动作执行时序与轨迹连续性优化</h3>
+          <p>基于 Jetson Thor 构建轻量机械臂具身操作验证链路，围绕 VLA 动作块时序、异步推理接管与夹爪接触执行开展工程验证；在 Thor 上完成策略推理基准、同步 / 异步调度对照及 SO-101 MuJoCo 夹爪几何实验。</p>
           <div class="project-diagram" aria-label="SO-101 动作执行优化流程图"><span>VLA 动作块</span><span>进度 / 边界感知</span><span>异步调度与对齐</span><span>轨迹时序约束</span><span>SO-101 反馈</span></div>
-          <dl class="project-details"><div><dt>负责内容</dt><dd>完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；搭建 ACT / SmolVLA 策略训练与推理环境，推进 SO-101 执行链路集成。</dd></div><div><dt>验证重点</dt><dd>以 SO-101 Bench 为统一任务平台，对比固定动作块、PTS 风格时间重参数化 / 异步执行，以及结合任务进度与执行反馈的调度策略；评估成功率、完成时间、轨迹连续性与推理等待。</dd></div></dl>
+          <dl class="project-details"><div><dt>负责内容</dt><dd>完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；验证 SmolVLA / GR00T observation→action chunk 推理，搭建 SO-101 MuJoCo 环境、策略适配器、同步 / 异步调度器与执行指标记录。</dd></div><div><dt>验证重点</dt><dd>对比 sync 与 async-naive 的墙钟耗时、动作块过期率、接管跳变及关节跟踪 RMSE；另以确定性 IK fixture 验证夹爪碰撞几何和接触垫参数敏感性。当前策略 checkpoint 为 SO-100 训练资产，策略自主抓取与真机闭环尚未验证。</dd></div></dl>
+          <details class="project-evidence"><summary>展开实测数据与验证边界</summary><div class="project-evidence-content"></div></details>
           <small class="diagram-note">系统示意 · 非实拍</small>
         </article>
         <article class="project-card reveal-card project-minor" data-tags="vla edge">
@@ -409,6 +410,6 @@
     <span>© 2026 梁浩琪</span>
     <a href="/feed.xml">RSS</a>
   </footer>
-  <script src="/assets/js/home.js?v=20261122-3" defer></script>
+  <script src="/assets/js/home.js?v=20261122-4" defer></script>
 </body>
 </html>
