@@ -48,3 +48,97 @@
   #case-studies .case-feature,
   #case-studies .case-feature--camera { padding:22px !important; }
 }
+
+/* Expandable measured evidence for the Jetson Thor / SO-101 project */
+.project-evidence {
+  margin-top: 18px;
+  border: 1px solid #dce9e5;
+  border-radius: 12px;
+  background: #f8fbfa;
+  overflow: hidden;
+}
+.project-evidence > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 12px 15px;
+  color: #087d70;
+  font-size: .78rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.project-evidence > summary::-webkit-details-marker { display: none; }
+.project-evidence > summary::after { content: "+"; font-size: 1.1rem; line-height: 1; }
+.project-evidence[open] > summary::after { content: "−"; }
+.project-evidence-content {
+  display: grid;
+  gap: 15px;
+  padding: 0 15px 16px;
+}
+.evidence-block { min-width: 0; }
+.evidence-block h4 {
+  margin: 0 0 8px;
+  color: #193743;
+  font-size: .78rem;
+  font-weight: 850;
+}
+.evidence-block > p {
+  margin: 0;
+  color: #687d89;
+  font-size: .72rem;
+  line-height: 1.7;
+}
+.evidence-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 7px;
+}
+.evidence-stat {
+  min-width: 0;
+  padding: 9px 10px;
+  background: #edf5f2;
+  border-radius: 8px;
+}
+.evidence-stat strong {
+  display: block;
+  color: #087d70;
+  font-size: .95rem;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+.evidence-stat span {
+  display: block;
+  margin-top: 3px;
+  color: #71828a;
+  font-size: .65rem;
+  line-height: 1.4;
+}
+.evidence-stats--compact { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.evidence-table-wrap { width: 100%; overflow-x: auto; }
+.evidence-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .68rem;
+  line-height: 1.5;
+}
+.evidence-table th {
+  padding: 7px 8px;
+  background: #edf5f2;
+  color: #31515e;
+  text-align: left;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.evidence-table td {
+  padding: 7px 8px;
+  border-top: 1px solid #e2ece8;
+  color: #687d89;
+  vertical-align: top;
+}
+.evidence-note { margin-top: 7px !important; color: #82919a !important; font-size: .67rem !important; }
+@media (max-width: 600px) {
+  .evidence-stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .project-evidence-content { padding-inline: 11px; }
+  .evidence-table { min-width: 430px; }
+}
