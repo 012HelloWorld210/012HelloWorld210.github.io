@@ -2,8 +2,8 @@ const translations = {
   zh: {
     lang: "zh-CN",
     title: "梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署",
-    description: "梁浩琪的机器人系统工程作品集：ROS2 真机控制、遥操作与 VLA 部署、视觉 SLAM 与 Nav2、MuJoCo 仿真验证。",
-    share: "从 ROS2 真机控制、遥操作数据闭环到 VLA 部署与 SLAM/Nav2，把算法做成能在机器人上运行的系统。",
+    description: "梁浩琪的机器人系统作品集，涵盖 ROS2 控制、遥操作、VLA 部署与 SLAM 导航。",
+    share: "机器人系统开发：ROS2 控制、遥操作、VLA 部署与 SLAM 导航。",
     labels: {
       skip: "跳到正文", nav: "主导航", home: "返回首页", open: "打开导航", close: "关闭导航",
       language: "语言选择", signals: "能力关键词", actions: "主要操作", facts: "个人概览",
@@ -51,20 +51,20 @@ const translations = {
       filters: ["全部", "机器人系统", "具身智能", "边缘部署"],
       detailLabels: ["负责内容", "验证重点"], note: "系统示意 · 非实拍",
       items: [
-        { role: "星尘智能", title: "机器人摄影助理：全栈应用与真机执行", summary: "基于 React / FastAPI 开发机器人摄影助理，围绕手机实时取景、人员站位引导、机器人运镜执行与录像回传构建端到端拍摄流程；采用 MuJoCo 配合 Mock 执行器验证动作流程，完成 RK3588 部署与真机 SDK 联调。", details: ["搭建 React 工作台与 FastAPI 后端，交互事件映射为 /api/actions 并由 AppLogic 分发；HDF5 25 维动作转 SDK 路点，按执行时底盘位姿做 SE(2) 重定位复用相对轨迹；接入 YOLO11n / ONNX 同帧回传、一人一圈匹配与 Re-ID 三层候选集合。", "MuJoCo + Mock 回归覆盖路点转换、动作调度、停止请求与终态回传，跟随 V1 累计 109 项测试通过；真机完成推进、拉远、侧移、环绕 4 类运镜，支持 30° / 60° 环绕参数。"], diagram: "摄影助理系统流程图" },
-        { role: "Unitree Go2", title: "Go2 视觉 SLAM、导航与 CBF 安全控制", summary: "在 Jetson / Go2 EDU 与 RealSense D435i 平台集成视觉 SLAM 与 Nav2，完成建图、坐标系对齐与导航联调；在 Isaac Sim 中验证 CBF 动态障碍安全约束。", details: ["部署 RTAB-Map 与 ROS2 TF，完成 RGB-D / IMU 融合建图、实时位姿估计与 map / odom / base_link / camera_link 对齐；基于 Nav2 完成地图定位、路径规划与跟踪。", "Go2 真机上的定位、路径执行与动态避障；仿真中引入 CBF 风险约束验证安全策略。"], diagram: "Go2 导航系统流程图" },
-        { role: "广电运通·超智机器人", title: "天工机器人遥操作与 VLA 真机部署", summary: "打通“遥操作采集 → 数据转换与归一化 → 模型训练 → 远程推理 → 真机执行”全链路；用 ZMQ 隔离 ROS2 与解算环境，动作与图像链路拆分后解算延迟由约 50 ms 降至 20 ms 以内。", details: ["将天工 URDF 接入 XRobotToolkit，对齐关节命名与动作空间；拆分动作二进制推送与 JPEG 图像传输；适配 ROS2 话题映射、动作裁剪与字段对齐，支持 π0.5 / OpenPI 类模型训练与推理。", "银行卡跟随抓取、纸上盖章递交、刷卡等任务采集（单任务约 100 条、约 50 Hz）；盖章递交 20 次初步测试核心流程完成率约 80%。"], diagram: "具身智能系统流程图" },
-        { role: "Jetson Thor", title: "Jetson Thor 具身智能系统容器化部署", summary: "在 Jetson Thor 上完成 Docker / CUDA / JetPack 环境适配与容器化迁移，部署 SmolVLA 推理并迁移 VR 遥操作链路，验证跨平台运行一致性。", details: ["梳理依赖与镜像分层，完成 CUDA / JetPack 版本对齐；部署 SmolVLA 推理服务，迁移 VR 遥操作链路并处理设备与通信差异。", "Orin → Thor 的推理与遥操作复用，跨平台运行与稳定性验证。"], diagram: "Thor 部署流程图" },
-        { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 上部署 YOLOv5n、Whisper.cpp 与 Qwen，完成 PyTorch 到 ONNX 到 TensorRT 的目标检测加速，打通语音指令、视觉感知、大模型决策和运动执行。", bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
+        { role: "星尘智能", title: "机器人摄影助理：全栈应用与真机执行", summary: "开发 React / FastAPI 摄影助理，连接手机 WebRTC 取景、目标跟随、运镜执行与视频回传；经 MuJoCo + Mock 验证后部署至 RK3588，并完成真机 SDK 联调。", details: ["开发 React 工作台与 FastAPI 后端；将 HDF5 25 维动作转换为 SDK 路点，并按底盘位姿进行 SE(2) 重定位；接入 YOLO11n / ONNX 与 Re-ID 跟踪。", "MuJoCo + Mock 回归覆盖路点、调度、停止与状态回传；跟随 V1 通过 109 项测试，真机完成推进、拉远、侧移和环绕 4 类运镜。"], diagram: "摄影助理系统流程图" },
+        { role: "Unitree Go2", title: "Go2 视觉 SLAM、导航与 CBF 安全控制", summary: "在 Jetson、Go2 EDU 与 D435i 上集成 RTAB-Map 和 Nav2，完成建图、TF 对齐与导航联调；在 Isaac Sim 中验证 CBF 避障约束。",  details: ["部署 RTAB-Map，完成 RGB-D / IMU 建图及 map / odom / base_link / camera_link 对齐；使用 Nav2 实现定位、规划与路径跟踪。", "在 Go2 真机验证定位、路径执行与动态避障；在仿真中验证 CBF 安全约束。"], diagram: "Go2 导航系统流程图" },
+        { role: "广电运通·超智机器人", title: "天工机器人遥操作与 VLA 真机部署", summary: "打通遥操作采集、数据处理、模型训练、远程推理与真机执行；通过 ZMQ 隔离 ROS2 与解算环境，将解算延迟从约 50 ms 降至 20 ms 以内。",  details: ["将天工 URDF 接入 XRobotToolkit，对齐关节与动作空间；拆分动作和图像传输，适配 ROS2 话题及 π0.5 / OpenPI 推理接口。", "采集银行卡抓取、盖章递交和刷卡任务；单任务约 100 条、约 50 Hz，盖章递交初测 20 次，核心流程完成率约 80%。"], diagram: "具身智能系统流程图" },
+        { role: "Jetson Thor", title: "Jetson Thor 具身智能系统容器化部署", summary: "完成 Jetson Thor 的 Docker、CUDA 与 JetPack 适配，部署 SmolVLA 推理并迁移 VR 遥操作链路。",  details: ["完成依赖与镜像适配，部署 SmolVLA 推理服务，并处理 VR 遥操作迁移中的设备和通信差异。", "验证 Orin 到 Thor 的推理迁移、遥操作复用与运行稳定性。"], diagram: "Thor 部署流程图" },
+        { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 部署 YOLOv5n、Whisper.cpp 与 Qwen，并通过 ONNX / TensorRT 加速检测，连接语音、视觉、决策与运动执行。",  bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
       ],
     },
     experience: {
       title: "最新经历",
       items: [
-        ["2026.09 – 至今", "星尘智能 · 机器人全栈算法实习", "开发机器人摄影助理：React / FastAPI 工作台、手机 WebRTC 实时取景、YOLO11n 站位引导、HDF5 动作到 SDK 路点转换与 SE(2) 重定位；MuJoCo + Mock 回归验证后完成 RK3588 部署与真机 SDK 联调，跟随 V1 累计 109 项测试通过。"],
-        ["2026.08 – 2026.09", "众擎机器人 · 控制算法实习", "参与 T800H / T800Pro 遥操作与 ROS2 控制开发：C++ Bridge 以约 200 Hz 组织控制计算、500 Hz 状态反馈，Python 后端做点位管理与五次多项式插值；接入 MOCRAL 逆动力学重力补偿，并用加权优化 IK 完成 Pico 到 43 自由度机器人上半身的动作重定向。"],
-        ["2026.04 – 2026.07", "广电运通·超智机器人 · 具身智能 / VLA 部署实习", "完成天工机器人遥操作适配与数据采集、π0.5 / OpenPI 训练推理部署；用 ZMQ 隔离 ROS2 与解算环境，动作与图像链路拆分后解算延迟从约 50 ms 降到 20 ms 以内。"],
-        ["2025.06 – 2025.09", "优艾智合机器人 · 机器人系统实习", "基于 SO-ARM100 + Meta Quest 3 搭建 VR 遥操作，末端映射延迟 ≤50 ms；设计 Δpose 增量控制、低通滤波与 DLS-IK，手柄高频抖动降低约 40%；对接华成控制器并完成 SolidWorks → URDF → ManiSkill 建模。"],
+        ["2026.09 – 至今", "星尘智能 · 机器人全栈算法实习", "开发 React / FastAPI 摄影助理，完成 WebRTC 取景、YOLO11n 站位引导、HDF5 动作转换与 SE(2) 重定位；经 MuJoCo + Mock 验证后部署至 RK3588，跟随 V1 通过 109 项测试。"],
+        ["2026.08 – 2026.09", "众擎机器人 · 控制算法实习", "参与 T800H / T800Pro 遥操作与 ROS2 控制；开发约 200 Hz C++ 控制桥接、500 Hz 状态反馈与轨迹插值，并接入 MOCRAL 重力补偿和加权 IK 动作重定向。"],
+        ["2026.04 – 2026.07", "广电运通·超智机器人 · 具身智能 / VLA 部署实习", "完成天工机器人遥操作适配、数据采集及 π0.5 / OpenPI 部署；通过 ZMQ 隔离 ROS2 与解算环境，将解算延迟从约 50 ms 降至 20 ms 以内。"],
+        ["2025.06 – 2025.09", "优艾智合机器人 · 机器人系统实习", "基于 SO-ARM100 与 Quest 3 搭建 VR 遥操作，末端映射延迟 ≤50 ms；通过 Δpose、低通滤波与 DLS-IK 将手柄高频抖动降低约 40%，并完成 URDF 与 ManiSkill 建模。"],
       ],
     },
     outputs: {
