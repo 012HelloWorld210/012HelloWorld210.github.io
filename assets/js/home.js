@@ -2,8 +2,8 @@ const translations = {
   zh: {
     lang: "zh-CN",
     title: "梁浩琪 | 机器人系统、ROS2 控制与 VLA 部署",
-    description: "梁浩琪的机器人系统工程作品集：ROS2 真机控制、遥操作与 VLA 部署、视觉 SLAM 与 Nav2、MuJoCo 仿真验证。",
-    share: "从 ROS2 真机控制、遥操作数据闭环到 VLA 部署与 SLAM/Nav2，把算法做成能在机器人上运行的系统。",
+    description: "梁浩琪的机器人系统作品集，涵盖 ROS2 控制、遥操作、VLA 部署与 SLAM 导航。",
+    share: "机器人系统开发：ROS2 控制、遥操作、VLA 部署与 SLAM 导航。",
     labels: {
       skip: "跳到正文", nav: "主导航", home: "返回首页", open: "打开导航", close: "关闭导航",
       language: "语言选择", signals: "能力关键词", actions: "主要操作", facts: "个人概览",
@@ -12,7 +12,8 @@ const translations = {
     nav: ["定位", "技能", "案例", "项目", "经历", "成果", "项目说明", "联系"],
     hero: {
       eyebrow: "机器人软件 / 系统工程", name: "梁浩琪",
-      lede: "把感知、规划、控制与 VLA 模型真正跑在机器人上：ROS2 真机联调、遥操作数据闭环、SLAM / Nav2 与边缘端部署。",
+      position: "机器人系统 · ROS2 控制 · 具身智能部署",
+      lede: "聚焦机器人系统落地：ROS2 控制、遥操作、VLA 部署与 SLAM 导航。",
       signals: ["ROS2 / ros2_control", "Teleoperation", "VLA Deployment", "SLAM / Nav2", "MuJoCo / Isaac Sim"],
       actions: ["查看项目", "项目说明", "GitHub"],
       facts: [["硕士 · 推免", "西安电子科技大学 · 电子信息（专业前 10%）"], ["机器人全栈", "ROS2 控制 · 遥操作 · VLA · SLAM"], ["真机闭环", "星尘 · 众擎 · 广电超智 · 优艾智合"]],
@@ -23,18 +24,18 @@ const translations = {
       links: [["Perception →", "摄影助理"], ["Planning →", "Go2 导航"], ["Control →", "VLA 真机"], ["Edge →", "Thor 部署"]],
     },
     focus: {
-      eyebrow: "01 / SYSTEM CAPABILITIES", title: "从感知到真机，能力要有项目对应。",
-      intro: "以机器人系统为主轴，把感知、规划、控制与部署连成可调试、可验证的工程闭环。",
+      eyebrow: "01 / SYSTEM CAPABILITIES", title: "机器人系统能力",
+      intro: "覆盖感知、规划、控制与部署，并以项目验证工程能力。",
       cards: [
-        ["机器人系统", "ROS2 / ros2_control、硬件接口、TF 与传感器集成；React + FastAPI 上位机与 SDK 联调。", "摄影助理 ↗"],
-        ["控制与规划", "FK / IK、DLS、加权优化 IK、五次多项式插值、MOCRAL 逆动力学补偿、Nav2 与 CBF。", "Go2 导航 ↗"],
-        ["感知与定位", "YOLO11n / ONNX Runtime、Re-ID 三层候选、双目深度、RTAB-Map / VINS-Fusion。", "目标跟随 ↗"],
-        ["具身智能与边缘端", "遥操作采集、π0.5 / OpenPI / SmolVLA 推理、MuJoCo / Isaac Sim 验证、Jetson / RK3588 部署。", "VLA 部署 ↗"],
+        ["机器人系统", "ROS2、ros2_control、传感器接入及上位机与机器人 SDK 联调。", "摄影助理 ↗"],
+        ["控制与规划", "FK / IK、DLS、加权 IK、轨迹插值、逆动力学补偿、Nav2 与 CBF。", "Go2 导航 ↗"],
+        ["感知与定位", "YOLO、ONNX Runtime、Re-ID、双目深度、RTAB-Map 与 VINS-Fusion。", "目标跟随 ↗"],
+        ["具身智能与边缘端", "遥操作数据采集、VLA 推理、仿真验证及 Jetson / RK3588 部署。", "VLA 部署 ↗"],
       ],
     },
     skills: {
       eyebrow: "02 / SKILLS", title: "技能栈",
-      intro: "按“能落地到真机”的标准组织：语言、机器人算法、仿真与部署、具身智能链路。",
+      intro: "按开发环节整理核心工具与算法。",
       cards: [
         ["语言与系统", "工程实现与真机通信", ["Python", "C++", "ROS2 Humble", "ros2_control", "ZMQ", "React", "FastAPI", "WebRTC", "Git"]],
         ["机器人算法", "运动学、动力学与控制", ["FK / IK", "DLS", "加权优化 IK (minc / DAQP)", "五次多项式", "Ruckig", "PD / 阻抗控制", "MOCRAL 逆动力学", "Nav2", "CBF"]],
@@ -45,29 +46,29 @@ const translations = {
       ],
     },
     projects: {
-      title: "把完整链路做成可运行的系统。",
-      intro: "围绕真实机器人链路组织项目：目标感知、定位导航、控制执行与具身智能部署。",
+      title: "代表项目",
+      intro: "涵盖机器人应用、运动控制、VLA 部署与边缘端运行。",
       filters: ["全部", "机器人系统", "具身智能", "边缘部署"],
       detailLabels: ["负责内容", "验证重点"], note: "系统示意 · 非实拍",
       items: [
-        { role: "星尘智能", title: "机器人摄影助理：全栈应用与真机执行", summary: "基于 React / FastAPI 开发机器人摄影助理，围绕手机实时取景、人员站位引导、机器人运镜执行与录像回传构建端到端拍摄流程；采用 MuJoCo 配合 Mock 执行器验证动作流程，完成 RK3588 部署与真机 SDK 联调。", details: ["搭建 React 工作台与 FastAPI 后端，交互事件映射为 /api/actions 并由 AppLogic 分发；HDF5 25 维动作转 SDK 路点，按执行时底盘位姿做 SE(2) 重定位复用相对轨迹；接入 YOLO11n / ONNX 同帧回传、一人一圈匹配与 Re-ID 三层候选集合。", "MuJoCo + Mock 回归覆盖路点转换、动作调度、停止请求与终态回传，跟随 V1 累计 109 项测试通过；真机完成推进、拉远、侧移、环绕 4 类运镜，支持 30° / 60° 环绕参数。"], diagram: "摄影助理系统流程图" },
-        { role: "Unitree Go2", title: "Go2 视觉 SLAM、导航与 CBF 安全控制", summary: "在 Jetson / Go2 EDU 与 RealSense D435i 平台集成视觉 SLAM 与 Nav2，完成建图、坐标系对齐与导航联调；在 Isaac Sim 中验证 CBF 动态障碍安全约束。", details: ["部署 RTAB-Map 与 ROS2 TF，完成 RGB-D / IMU 融合建图、实时位姿估计与 map / odom / base_link / camera_link 对齐；基于 Nav2 完成地图定位、路径规划与跟踪。", "Go2 真机上的定位、路径执行与动态避障；仿真中引入 CBF 风险约束验证安全策略。"], diagram: "Go2 导航系统流程图" },
-        { role: "广电运通·超智机器人", title: "天工机器人遥操作与 VLA 真机部署", summary: "打通“遥操作采集 → 数据转换与归一化 → 模型训练 → 远程推理 → 真机执行”全链路；用 ZMQ 隔离 ROS2 与解算环境，动作与图像链路拆分后解算延迟由约 50 ms 降至 20 ms 以内。", details: ["将天工 URDF 接入 XRobotToolkit，对齐关节命名与动作空间；拆分动作二进制推送与 JPEG 图像传输；适配 ROS2 话题映射、动作裁剪与字段对齐，支持 π0.5 / OpenPI 类模型训练与推理。", "银行卡跟随抓取、纸上盖章递交、刷卡等任务采集（单任务约 100 条、约 50 Hz）；盖章递交 20 次初步测试核心流程完成率约 80%。"], diagram: "具身智能系统流程图" },
-        { role: "Jetson Thor", title: "Jetson Thor 具身智能系统容器化部署", summary: "在 Jetson Thor 上完成 Docker / CUDA / JetPack 环境适配与容器化迁移，部署 SmolVLA 推理并迁移 VR 遥操作链路，验证跨平台运行一致性。", details: ["梳理依赖与镜像分层，完成 CUDA / JetPack 版本对齐；部署 SmolVLA 推理服务，迁移 VR 遥操作链路并处理设备与通信差异。", "Orin → Thor 的推理与遥操作复用，跨平台运行与稳定性验证。"], diagram: "Thor 部署流程图" },
-        { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 上部署 YOLOv5n、Whisper.cpp 与 Qwen，完成 PyTorch 到 ONNX 到 TensorRT 的目标检测加速，打通语音指令、视觉感知、大模型决策和运动执行。", bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
+        { role: "星尘智能", title: "机器人摄影助理：全栈应用与真机执行", summary: "开发 React / FastAPI 摄影助理，连接手机 WebRTC 取景、目标跟随、运镜执行与视频回传；经 MuJoCo + Mock 验证后部署至 RK3588，并完成真机 SDK 联调。", details: ["开发 React 工作台与 FastAPI 后端；将 HDF5 25 维动作转换为 SDK 路点，并按底盘位姿进行 SE(2) 重定位；接入 YOLO11n / ONNX 与 Re-ID 跟踪。", "MuJoCo + Mock 回归覆盖路点、调度、停止与状态回传；跟随 V1 通过 109 项测试，真机完成推进、拉远、侧移和环绕 4 类运镜。"], diagram: "摄影助理系统流程图" },
+        { role: "Unitree Go2", title: "Go2 视觉 SLAM、导航与 CBF 安全控制", summary: "在 Jetson、Go2 EDU 与 D435i 上集成 RTAB-Map 和 Nav2，完成建图、TF 对齐与导航联调；在 Isaac Sim 中验证 CBF 避障约束。",  details: ["部署 RTAB-Map，完成 RGB-D / IMU 建图及 map / odom / base_link / camera_link 对齐；使用 Nav2 实现定位、规划与路径跟踪。", "在 Go2 真机验证定位、路径执行与动态避障；在仿真中验证 CBF 安全约束。"], diagram: "Go2 导航系统流程图" },
+        { role: "广电运通·超智机器人", title: "天工机器人遥操作与 VLA 真机部署", summary: "打通遥操作采集、数据处理、模型训练、远程推理与真机执行；通过 ZMQ 隔离 ROS2 与解算环境，将解算延迟从约 50 ms 降至 20 ms 以内。",  details: ["将天工 URDF 接入 XRobotToolkit，对齐关节与动作空间；拆分动作和图像传输，适配 ROS2 话题及 π0.5 / OpenPI 推理接口。", "采集银行卡抓取、盖章递交和刷卡任务；单任务约 100 条、约 50 Hz，盖章递交初测 20 次，核心流程完成率约 80%。"], diagram: "具身智能系统流程图" },
+        { role: "Jetson Thor", title: "Jetson Thor 具身智能系统容器化部署", summary: "完成 Jetson Thor 的 Docker、CUDA 与 JetPack 适配，部署 SmolVLA 推理并迁移 VR 遥操作链路。",  details: ["完成依赖与镜像适配，部署 SmolVLA 推理服务，并处理 VR 遥操作迁移中的设备和通信差异。", "验证 Orin 到 Thor 的推理迁移、遥操作复用与运行稳定性。"], diagram: "Thor 部署流程图" },
+        { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 部署 YOLOv5n、Whisper.cpp 与 Qwen，并通过 ONNX / TensorRT 加速检测，连接语音、视觉、决策与运动执行。",  bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
       ],
     },
     experience: {
       title: "最新经历",
       items: [
-        ["2026.09 – 至今", "星尘智能 · 机器人全栈算法实习", "开发机器人摄影助理：React / FastAPI 工作台、手机 WebRTC 实时取景、YOLO11n 站位引导、HDF5 动作到 SDK 路点转换与 SE(2) 重定位；MuJoCo + Mock 回归验证后完成 RK3588 部署与真机 SDK 联调，跟随 V1 累计 109 项测试通过。"],
-        ["2026.08 – 2026.09", "众擎机器人 · 控制算法实习", "参与 T800H / T800Pro 遥操作与 ROS2 控制开发：C++ Bridge 以约 200 Hz 组织控制计算、500 Hz 状态反馈，Python 后端做点位管理与五次多项式插值；接入 MOCRAL 逆动力学重力补偿，并用加权优化 IK 完成 Pico 到 43 自由度机器人上半身的动作重定向。"],
-        ["2026.04 – 2026.07", "广电运通·超智机器人 · 具身智能 / VLA 部署实习", "完成天工机器人遥操作适配与数据采集、π0.5 / OpenPI 训练推理部署；用 ZMQ 隔离 ROS2 与解算环境，动作与图像链路拆分后解算延迟从约 50 ms 降到 20 ms 以内。"],
-        ["2025.06 – 2025.09", "优艾智合机器人 · 机器人系统实习", "基于 SO-ARM100 + Meta Quest 3 搭建 VR 遥操作，末端映射延迟 ≤50 ms；设计 Δpose 增量控制、低通滤波与 DLS-IK，手柄高频抖动降低约 40%；对接华成控制器并完成 SolidWorks → URDF → ManiSkill 建模。"],
+        ["2026.09 – 至今", "星尘智能 · 机器人全栈算法实习", "开发 React / FastAPI 摄影助理，完成 WebRTC 取景、YOLO11n 站位引导、HDF5 动作转换与 SE(2) 重定位；经 MuJoCo + Mock 验证后部署至 RK3588，跟随 V1 通过 109 项测试。"],
+        ["2026.08 – 2026.09", "众擎机器人 · 控制算法实习", "参与 T800H / T800Pro 遥操作与 ROS2 控制；开发约 200 Hz C++ 控制桥接、500 Hz 状态反馈与轨迹插值，并接入 MOCRAL 重力补偿和加权 IK 动作重定向。"],
+        ["2026.04 – 2026.07", "广电运通·超智机器人 · 具身智能 / VLA 部署实习", "完成天工机器人遥操作适配、数据采集及 π0.5 / OpenPI 部署；通过 ZMQ 隔离 ROS2 与解算环境，将解算延迟从约 50 ms 降至 20 ms 以内。"],
+        ["2025.06 – 2025.09", "优艾智合机器人 · 机器人系统实习", "基于 SO-ARM100 与 Quest 3 搭建 VR 遥操作，末端映射延迟 ≤50 ms；通过 Δpose、低通滤波与 DLS-IK 将手柄高频抖动降低约 40%，并完成 URDF 与 ManiSkill 建模。"],
       ],
     },
     outputs: {
-      title: "研究与成果", intro: "论文、知识产权与竞赛成果，均为学生一作。",
+      title: "研究与成果", intro: "论文、知识产权与竞赛获奖记录。",
       cards: [
         ["Semantic Communications with Zero-Shot Learning for Multi-modal Transmission", "学生一作 · EI 检索"],
         ["基于语义不确定性与动态安全距离的无人机安全控制方法", "发明专利 · 学生一作"],
@@ -78,11 +79,11 @@ const translations = {
     education: "西安电子科技大学 · 电子信息硕士（推免，专业前 10%） / 兰州理工大学 · 自动化（专业排名 10/229，省优秀毕业生）",
     download: {
       eyebrow: "06 / DOCUMENT", title: "项目说明",
-      intro: "48 页完整记录：星尘智能、众擎、广电超智等实习与项目，含真机视频截图。",
+      intro: "48 页项目记录，包含实习经历、技术方案与真机验证材料。",
       actions: ["下载 PDF · 8.6 MB", "下载 PPTX · 317 MB"],
-      note: "PPTX 内含 20 段真机视频，文件较大；PDF 为同一内容的静态版，建议先看 PDF。",
+      note: "PPTX 含真机视频，文件较大；建议优先查看 PDF。",
     },
-    contact: { title: "一起把机器人系统做成可运行的现实。", actions: ["2693075546@qq.com", "GitHub"] },
+    contact: { title: "机器人系统工程与开发", actions: ["2693075546@qq.com", "GitHub"] },
     footer: "© 2026 梁浩琪",
   },
   en: {
@@ -96,8 +97,9 @@ const translations = {
     },
     nav: ["Focus", "Skills", "Cases", "Projects", "Experience", "Outputs", "Document", "Contact"],
     hero: {
-      eyebrow: "Robot Software / Systems Engineering", name: "Liang Haoqi",
-      lede: "I bring perception, planning, control, and VLA models onto real robots: ROS2 integration, teleoperation data loops, SLAM / Nav2, and edge deployment.",
+      eyebrow: "Robotics Systems Engineering", name: "Liang Haoqi",
+      position: "ROS2 Control · Teleoperation · Embodied AI",
+      lede: "I build robot systems across ROS2 control, teleoperation, VLA deployment, and SLAM navigation.",
       signals: ["ROS2 / ros2_control", "Teleoperation", "VLA Deployment", "SLAM / Nav2", "MuJoCo / Isaac Sim"],
       actions: ["View Projects", "Document", "GitHub"],
       facts: [["M.Eng. · Recommended", "Xidian University · Electronics (top 10%)"], ["Full-stack Robotics", "ROS2 control · Teleoperation · VLA · SLAM"], ["Real-Robot Loops", "Stardust · EngineAI · GRG · Youibot"]],
@@ -109,17 +111,17 @@ const translations = {
     },
     focus: {
       eyebrow: "01 / SYSTEM CAPABILITIES", title: "Capabilities connected to real projects.",
-      intro: "Robot systems are my core focus. I connect perception, planning, control, and deployment into a system that can be tested and verified.",
+      intro: "I connect perception, planning, control, and deployment in testable robot systems.",
       cards: [
-        ["Robot Systems", "ROS2 / ros2_control, hardware interfaces, TF and sensor integration; React + FastAPI front ends with SDK integration.", "Camera assistant ↗"],
-        ["Planning & Control", "FK / IK, DLS, weighted optimization IK, quintic interpolation, MOCRAL inverse dynamics, Nav2 and CBF.", "Go2 navigation ↗"],
-        ["Perception & Localization", "YOLO11n / ONNX Runtime, three-tier Re-ID candidates, stereo depth, RTAB-Map / VINS-Fusion.", "Person following ↗"],
-        ["Embodied & Edge AI", "Teleoperation data, π0.5 / OpenPI / SmolVLA inference, MuJoCo / Isaac Sim validation, Jetson / RK3588 deployment.", "VLA deployment ↗"],
+        ["Robot Systems", "ROS2, ros2_control, sensor integration, and SDK-connected operator interfaces.", "Camera assistant ↗"],
+        ["Planning & Control", "FK / IK, DLS, weighted IK, trajectory interpolation, inverse dynamics, Nav2 and CBF.", "Go2 navigation ↗"],
+        ["Perception & Localization", "YOLO, ONNX Runtime, Re-ID, stereo depth, RTAB-Map and VINS-Fusion.", "Person following ↗"],
+        ["Embodied & Edge AI", "Teleoperation data, VLA inference, simulation, and Jetson / RK3588 deployment.", "VLA deployment ↗"],
       ],
     },
     skills: {
       eyebrow: "02 / SKILLS", title: "Tech Stack",
-      intro: "Organized by what can actually run on a robot: languages, robot algorithms, simulation and deployment, and embodied AI pipelines.",
+      intro: "Core tools and methods, organized by engineering workflow.",
       cards: [
         ["Languages & Systems", "Implementation and real-robot communication", ["Python", "C++", "ROS2 Humble", "ros2_control", "ZMQ", "React", "FastAPI", "WebRTC", "Git"]],
         ["Robot Algorithms", "Kinematics, dynamics, and control", ["FK / IK", "DLS", "Weighted IK (minc / DAQP)", "Quintic spline", "Ruckig", "PD / impedance", "MOCRAL inverse dynamics", "Nav2", "CBF"]],
@@ -130,29 +132,29 @@ const translations = {
       ],
     },
     projects: {
-      title: "Engineering the complete robot loop.",
-      intro: "Projects across the real robot pipeline: target perception, localization and navigation, control execution, and embodied AI deployment.",
+      title: "Selected Projects",
+      intro: "Robot applications, motion control, VLA deployment, and edge inference.",
       filters: ["All", "Robot Systems", "Embodied AI", "Edge Deployment"],
       detailLabels: ["My role", "Validation"], note: "System diagram · not project footage",
       items: [
-        { role: "星尘智能", title: "Robot Camera Assistant: Full-Stack App & Hardware Execution", summary: "Built a robot camera assistant with React / FastAPI covering live phone preview, subject positioning guidance, camera-move execution, and video return; validated motion flows with MuJoCo and a mock executor, then deployed on RK3588 and integrated with the real robot SDK.", details: ["Built the React workbench and FastAPI backend; UI events map to /api/actions and dispatch through AppLogic. Converted 25-D HDF5 body commands into SDK waypoints with SE(2) relocation against the live chassis pose, and integrated YOLO11n / ONNX same-frame returns, one-person-one-loop matching, and a three-tier Re-ID candidate set.", "MuJoCo + mock regression covered waypoint conversion, action scheduling, stop requests, and final-state return; following V1 passed 109 tests in total. On hardware: four camera moves (push-in, pull-out, lateral, orbit) with 30° / 60° orbit parameters."], diagram: "Camera assistant system diagram" },
-        { role: "Unitree Go2", title: "Go2 Visual SLAM, Navigation & CBF Safety", summary: "Integrated visual SLAM and Nav2 on Jetson / Go2 EDU with RealSense D435i, completing mapping, frame alignment, and navigation bring-up; validated CBF dynamic-obstacle safety constraints in Isaac Sim.", details: ["Deployed RTAB-Map with ROS2 TF for RGB-D / IMU mapping, real-time pose estimation, and map / odom / base_link / camera_link alignment; used Nav2 for localization, planning, and path tracking.", "Localization, path execution, and dynamic obstacle avoidance on a real Go2; CBF risk constraints validated in simulation."], diagram: "Go2 navigation system diagram" },
-        { role: "GRG Superbrain Robotics", title: "Tiangong Teleoperation & VLA Deployment on Hardware", summary: "Connected the full loop from teleoperation collection, conversion and normalization, training, remote inference, to real-robot execution; used ZMQ to isolate ROS2 from the solver environment and cut solver latency from about 50 ms to under 20 ms.", details: ["Integrated the Tiangong URDF into XRobotToolkit with aligned joint naming and action space; separated binary action push from JPEG image transport; adapted ROS2 topic mapping, action clipping, and field alignment for π0.5 / OpenPI models.", "Collected card-following grasp, paper stamping and handover, and card-swipe tasks (about 100 episodes per task at about 50 Hz); the stamping-and-handover task reached about 80% core-flow completion in 20 initial trials."], diagram: "Embodied AI system diagram" },
-        { role: "Jetson Thor", title: "Containerized Embodied AI Deployment on Jetson Thor", summary: "Adapted Docker / CUDA / JetPack on Jetson Thor, deployed SmolVLA inference, and migrated the VR teleoperation pipeline to verify cross-platform consistency.", details: ["Reconciled dependencies and image layers with matched CUDA / JetPack versions; deployed a SmolVLA inference service and migrated the VR teleoperation pipeline across device and transport differences.", "Reuse of inference and teleoperation from Orin to Thor, with cross-platform runtime and stability validation."], diagram: "Thor deployment diagram" },
+        { role: "星尘智能", title: "Robot Camera Assistant: Full-Stack App & Hardware Execution", summary: "Built a React / FastAPI camera assistant for WebRTC preview, person following, camera moves, and video return; validated with MuJoCo + mock execution, then deployed to RK3588 and integrated with the robot SDK.", details: ["Built the React workbench and FastAPI backend; converted 25-D HDF5 actions into SDK waypoints with SE(2) relocation, and integrated YOLO11n / ONNX and Re-ID tracking.", "MuJoCo + mock regression covered waypoint conversion, scheduling, stop and status return. Following V1 passed 109 tests; hardware supports push-in, pull-out, lateral and orbit moves."], diagram: "Camera assistant system diagram" },
+        { role: "Unitree Go2", title: "Go2 Visual SLAM, Navigation & CBF Safety", summary: "Integrated RTAB-Map and Nav2 on Jetson / Go2 EDU with D435i; completed mapping, TF alignment and navigation tests, and validated CBF obstacle constraints in Isaac Sim.", details: ["Deployed RTAB-Map with ROS2 TF for RGB-D / IMU mapping, real-time pose estimation, and map / odom / base_link / camera_link alignment; used Nav2 for localization, planning, and path tracking.", "Localization, path execution, and dynamic obstacle avoidance on a real Go2; CBF risk constraints validated in simulation."], diagram: "Go2 navigation system diagram" },
+        { role: "GRG Superbrain Robotics", title: "Tiangong Teleoperation & VLA Deployment on Hardware", summary: "Connected teleoperation data, preprocessing, policy training, remote inference and robot execution; used ZMQ to isolate ROS2 and reduced solver latency from about 50 ms to under 20 ms.", details: ["Integrated the Tiangong URDF into XRobotToolkit with aligned joint naming and action space; separated binary action push from JPEG image transport; adapted ROS2 topic mapping, action clipping, and field alignment for π0.5 / OpenPI models.", "Collected card-following grasp, paper stamping and handover, and card-swipe tasks (about 100 episodes per task at about 50 Hz); the stamping-and-handover task reached about 80% core-flow completion in 20 initial trials."], diagram: "Embodied AI system diagram" },
+        { role: "Jetson Thor", title: "Containerized Embodied AI Deployment on Jetson Thor", summary: "Adapted Docker, CUDA and JetPack on Jetson Thor; deployed SmolVLA inference and migrated the VR teleoperation pipeline.", details: ["Reconciled dependencies and image layers with matched CUDA / JetPack versions; deployed a SmolVLA inference service and migrated the VR teleoperation pipeline across device and transport differences.", "Reuse of inference and teleoperation from Orin to Thor, with cross-platform runtime and stability validation."], diagram: "Thor deployment diagram" },
         { role: "Team Lead", title: "Multimodal Embodied AI System", summary: "Deployed YOLOv5n, Whisper.cpp, and Qwen on Jetson Orin Nano, accelerated detection from PyTorch through ONNX to TensorRT, and connected voice commands, vision, model decisions, and motion.", bullets: ["Integrated a multimodal agent workflow", "Optimized lightweight deployment for robot tasks"] },
       ],
     },
     experience: {
       title: "Recent Experience",
       items: [
-        ["Sep 2026 – Present", "星尘智能 · Robotics Full-Stack Algorithm Intern", "Built a robot camera assistant: React / FastAPI workbench, phone WebRTC live preview, YOLO11n positioning guidance, HDF5-to-SDK waypoint conversion with SE(2) relocation; after MuJoCo + mock regression, deployed on RK3588 and integrated with the real robot SDK. Following V1 passed 109 tests."],
-        ["Aug 2026 – Sep 2026", "EngineAI · Control Algorithm Intern", "Worked on T800H / T800Pro teleoperation and ROS2 control: a C++ bridge running about 200 Hz control with 500 Hz state feedback, a Python backend for waypoint management and quintic interpolation, MOCRAL inverse-dynamics gravity compensation, and weighted IK retargeting from Pico to the upper body of a 43-DOF robot."],
-        ["Apr 2026 – Jul 2026", "GRG Superbrain Robotics · Embodied AI / VLA Intern", "Adapted Tiangong teleoperation, collected data, and deployed π0.5 / OpenPI training and inference; used ZMQ to isolate ROS2 from the solver environment and split action and image transport, cutting solver latency from about 50 ms to under 20 ms."],
-        ["Jun 2025 – Sep 2025", "Youibot Robotics · Robotics Systems Intern", "Built VR teleoperation with SO-ARM100 and Meta Quest 3 at ≤50 ms end-effector mapping latency; designed Δpose incremental control, low-pass filtering, and DLS-IK, reducing high-frequency controller jitter by about 40%; integrated the Huacheng controller and built SolidWorks → URDF → ManiSkill models."],
+        ["Sep 2026 – Present", "星尘智能 · Robotics Full-Stack Algorithm Intern", "Built a React / FastAPI camera assistant with WebRTC preview, YOLO11n guidance and HDF5-to-SDK motion conversion; validated with MuJoCo + mock, deployed on RK3588, and passed 109 following V1 tests."],
+        ["Aug 2026 – Sep 2026", "EngineAI · Control Algorithm Intern", "Worked on T800H / T800Pro teleoperation and ROS2 control, including a ~200 Hz C++ bridge, 500 Hz state feedback, trajectory interpolation, MOCRAL compensation and weighted-IK retargeting."],
+        ["Apr 2026 – Jul 2026", "GRG Superbrain Robotics · Embodied AI / VLA Intern", "Adapted Tiangong teleoperation, collected data and deployed π0.5 / OpenPI; used ZMQ isolation to reduce solver latency from about 50 ms to under 20 ms."],
+        ["Jun 2025 – Sep 2025", "Youibot Robotics · Robotics Systems Intern", "Built SO-ARM100 VR teleoperation with Quest 3 at ≤50 ms mapping latency; used Δpose, low-pass filtering and DLS-IK to reduce controller jitter by about 40%, and built URDF / ManiSkill models."],
       ],
     },
     outputs: {
-      title: "Research & Outputs", intro: "Research, intellectual property, and competition results, all as first student author.",
+      title: "Research & Outputs", intro: "Research, intellectual property, and competition awards.",
       cards: [
         ["Semantic Communications with Zero-Shot Learning for Multi-modal Transmission", "First student author · EI indexed"],
         ["UAV safety control using semantic uncertainty and dynamic safety distance", "Invention patent · first student author"],
@@ -163,11 +165,11 @@ const translations = {
     education: "Xidian University · M.Eng. in Electronic Information (recommended admission, top 10%) / Lanzhou University of Technology · B.Eng. in Automation (rank 10/229, provincial outstanding graduate)",
     download: {
       eyebrow: "06 / DOCUMENT", title: "Project Overview",
-      intro: "A 48-page record of internships and projects at 星尘智能, EngineAI, and GRG Superbrain, with real-robot video stills.",
+      intro: "A 48-page record of project work, technical design, and real-robot validation.",
       actions: ["Download PDF · 8.6 MB", "Download PPTX · 317 MB"],
-      note: "The PPTX includes 20 real-robot videos and is large; the PDF is the same content in a static format.",
+      note: "The PPTX includes robot videos and is large. The PDF is recommended.",
     },
-    contact: { title: "Let's build robot systems that work in the real world.", actions: ["2693075546@qq.com", "GitHub"] },
+    contact: { title: "Robotics Systems Engineering", actions: ["2693075546@qq.com", "GitHub"] },
     footer: "© 2026 Liang Haoqi",
   },
 };
@@ -210,6 +212,7 @@ const applyLanguage = (language) => {
   document.querySelectorAll(".nav-links a").forEach((item, index) => { item.textContent = copy.nav[index]; });
   setText(".hero .eyebrow", copy.hero.eyebrow);
   setText("#hero-title", copy.hero.name);
+  setText(".hero-position", copy.hero.position);
   setText(".hero-lede", copy.hero.lede);
   document.querySelectorAll(".signal-strip span").forEach((item, index) => { item.textContent = copy.hero.signals[index]; });
   document.querySelectorAll(".hero-actions .button").forEach((item, index) => { item.textContent = copy.hero.actions[index]; });
