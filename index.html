@@ -19,7 +19,8 @@
   <meta name="twitter:description" content="从 ROS2 真机控制、遥操作数据闭环到 VLA 部署与 SLAM/Nav2，把算法做成能在机器人上运行的系统。">
   <meta name="theme-color" content="#eef3f8">
   <link rel="stylesheet" href="/assets/css/home.css?v=20261122-2">
-  <link rel="stylesheet" href="/assets/css/visual-refresh.css?v=20261122-1">
+  <link rel="stylesheet" href="/assets/css/visual-refresh.css?v=20261122-1"
+  <link rel="stylesheet" href="/assets/css/case-studies.css?v=20261122-1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -196,6 +197,66 @@
             <li>回归测试</li><li>Skills 沉淀</li><li>日志与回放验证</li>
           </ul>
         </article>
+      </div>
+    </section>
+
+
+    <section class="case-section" id="case-studies" aria-labelledby="case-studies-title">
+      <div class="case-inner">
+        <div class="case-intro">
+          <div>
+            <p class="eyebrow">ENGINEERING CASE STUDIES / 2025—2026</p>
+            <h2 id="case-studies-title"><span class="case-zh">不是技术名词堆砌，<br>而是完整的机器人链路。</span><span class="case-en">Not a list of tools.<br>Real robot systems.</span></h2>
+          </div>
+          <p><span class="case-zh">从实际问题出发，明确系统组成、本人负责部分，以及仿真和真机分别验证了什么。</span><span class="case-en">From engineering problems to system design, implementation ownership and validation in simulation or on hardware.</span></p>
+        </div>
+        <div class="case-grid">
+          <article class="case-feature case-feature--camera">
+            <div class="case-meta"><span>01 / ROBOT APPLICATION</span><span>ASTRIBOT · 2026</span></div>
+            <div class="case-feature-body">
+              <div class="case-story">
+                <span class="case-kicker"><span class="case-zh">端到端机器人应用</span><span class="case-en">END-TO-END APPLICATION</span></span>
+                <h3><span class="case-zh">机器人摄影助理</span><span class="case-en">Robot camera assistant</span></h3>
+                <p><span class="case-zh">把手机实时取景、站位引导、运镜规划与机器人执行连接为一个可操作的工作台。</span><span class="case-en">A working interface connecting mobile live preview, subject guidance, camera motion and robot execution.</span></p>
+                <div class="case-facts"><div><strong>109</strong><span><span class="case-zh">跟随 V1 测试通过</span><span class="case-en">following V1 tests passed</span></span></div><div><strong>4</strong><span><span class="case-zh">真机运镜类型</span><span class="case-en">camera move types on robot</span></span></div></div>
+                <a class="case-link" href="#stardust"><span class="case-zh">查看完整技术实现</span><span class="case-en">Explore implementation</span><span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="case-architecture" role="img" aria-label="WebRTC mobile video, React FastAPI orchestration, perception and robot SDK motion pipeline">
+                <div class="case-arch-top"><span>CAMERA ASSISTANT / SYSTEM VIEW</span><i></i></div>
+                <div class="case-lanes"><div><em>01 / INPUT</em><strong>Mobile Camera</strong><small>WebRTC · Live Preview</small></div><div><em>02 / ORCHESTRATION</em><strong>React + FastAPI</strong><small>YOLO11n · ONNX · Re-ID</small></div><div><em>03 / EXECUTION</em><strong>HDF5 → SE(2) → SDK</strong><small>MuJoCo / Mock · Robot</small></div></div>
+                <div class="case-arch-footer"><span>PERCEPTION</span><span>PLANNING</span><span>CONTROL</span></div>
+              </div>
+            </div>
+          </article>
+          <article class="case-feature case-feature--control">
+            <div class="case-meta"><span>02 / HUMANOID CONTROL</span><span>ENGINEAI · 2026</span></div>
+            <div class="case-kicker"><span class="case-zh">遥操作与重定向</span><span class="case-en">TELEOPERATION &amp; RETARGETING</span></div>
+            <h3><span class="case-zh">从 Pico 动作到人形机器人关节</span><span class="case-en">From Pico motion to humanoid joints</span></h3>
+            <div class="case-mini-flow"><span>Pico / XRobot</span><b>→</b><span>Weighted IK</span><b>→</b><span>ROS2 Control</span></div>
+            <p><span class="case-zh">围绕 T800H / T800Pro，参与加权优化 IK、MOCRAL 逆动力学补偿、插值与控制桥接；不是把“有遥操作”当成算法成果。</span><span class="case-en">Worked on weighted IK retargeting, MOCRAL inverse dynamics, trajectory interpolation and ROS2 bridging for T800H / T800Pro.</span></p>
+            <div class="case-bottom"><div><strong>43 DOF</strong><small><span class="case-zh">机器人系统</span><span class="case-en">robot system</span></small></div><div><strong>200 Hz</strong><small><span class="case-zh">控制计算链路</span><span class="case-en">control computation</span></small></div></div>
+            <a class="case-link" href="#experience"><span class="case-zh">查看控制经历</span><span class="case-en">View control work</span><span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="case-feature case-feature--vla">
+            <div class="case-meta"><span>03 / EMBODIED AI</span><span>GRG · 2026</span></div>
+            <div class="case-kicker"><span class="case-zh">遥操作数据到策略执行</span><span class="case-en">DATA TO POLICY EXECUTION</span></div>
+            <h3><span class="case-zh">天工机器人 VLA 真机链路</span><span class="case-en">Tiangong VLA deployment</span></h3>
+            <div class="case-mini-flow"><span>Teleop</span><b>→</b><span>Dataset</span><b>→</b><span>π0.5 / OpenPI</span><b>→</b><span>Robot</span></div>
+            <p><span class="case-zh">通过 XRobotToolkit、ROS2、ZMQ 与远程推理，打通采集、动作空间对齐、模型推理和真机执行。</span><span class="case-en">Connected collection, action-space alignment, remote policy inference and hardware execution with XRobotToolkit, ROS2 and ZMQ.</span></p>
+            <div class="case-bottom"><div><strong>&lt;20 ms</strong><small><span class="case-zh">优化后的解算延迟</span><span class="case-en">reported solver latency</span></small></div><div><strong>~50 Hz</strong><small><span class="case-zh">任务数据采集频率</span><span class="case-en">task data collection</span></small></div></div>
+            <a class="case-link" href="#vla"><span class="case-zh">查看部署链路</span><span class="case-en">View deployment pipeline</span><span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="case-feature case-feature--slam">
+            <div class="case-meta"><span>04 / PERCEPTION &amp; NAVIGATION</span><span>UNITREE GO2</span></div>
+            <div class="case-kicker"><span class="case-zh">从视觉里程计到导航</span><span class="case-en">VISUAL ODOMETRY TO NAVIGATION</span></div>
+            <h3><span class="case-zh">SLAM、TF 与 Go2 导航</span><span class="case-en">SLAM, TF and Go2 navigation</span></h3>
+            <div class="case-mini-flow"><span>RGB-D / IMU</span><b>→</b><span>RTAB-Map</span><b>→</b><span>Nav2</span></div>
+            <p><span class="case-zh">Jetson + D435i + Go2 EDU 的建图与导航联调；另有公开的视觉惯性 SLAM 学习实现，可查看代码而不只看描述。</span><span class="case-en">Mapping and navigation on Jetson, D435i and Go2 EDU, plus a public visual-inertial SLAM implementation repository.</span></p>
+            <div class="case-bottom"><div><strong>ROS2</strong><small>TF / map / odom</small></div><div><strong>CBF</strong><small><span class="case-zh">仿真安全约束</span><span class="case-en">simulated safety constraint</span></small></div></div>
+            <div class="case-links"><a class="case-link" href="#go2"><span class="case-zh">查看 Go2 项目</span><span class="case-en">View Go2 project</span><span aria-hidden="true">↗</span></a><a class="case-link case-link--secondary" href="https://github.com/012HelloWorld210/visual-inertial-SLAM" target="_blank" rel="noopener noreferrer"><span class="case-zh">公开 SLAM 代码</span><span class="case-en">Public SLAM code</span><span aria-hidden="true">↗</span></a></div>
+          </article>
+        </div>
+        <p class="case-disclaimer"><span class="case-zh">上述为工程结构示意，不是实拍或性能仪表盘。具体数据沿用现有项目记录；公司项目代码与未授权素材不公开。</span><span class="case-en">System diagrams, not photos or live benchmarks. Figures are from existing project descriptions; proprietary code and unapproved media are not published.</span></p>
       </div>
     </section>
 
