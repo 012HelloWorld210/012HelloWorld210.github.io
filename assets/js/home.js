@@ -52,7 +52,26 @@ const translations = {
       detailLabels: ["负责内容", "验证重点"], note: "系统示意 · 非实拍",
       items: [
         { role: "星尘智能", title: "机器人摄影助理：全栈应用与真机执行", summary: "开发 React / FastAPI 摄影助理，连接手机 WebRTC 取景、目标跟随、运镜执行与视频回传；经 MuJoCo + Mock 验证后部署至 RK3588，并完成真机 SDK 联调。", details: ["开发 React 工作台与 FastAPI 后端；将 HDF5 25 维动作转换为 SDK 路点，并按底盘位姿进行 SE(2) 重定位；接入 YOLO11n / ONNX 与 Re-ID 跟踪。", "MuJoCo + Mock 回归覆盖路点、调度、停止与状态回传；跟随 V1 通过 109 项测试，真机完成推进、拉远、侧移和环绕 4 类运镜。"], diagram: "摄影助理系统流程图" },        { role: "广电运通·超智机器人", title: "天工机器人遥操作与 VLA 真机部署", summary: "打通遥操作采集、数据处理、模型训练、远程推理与真机执行；通过 ZMQ 隔离 ROS2 与解算环境，将解算延迟从约 50 ms 降至 20 ms 以内。",  details: ["将天工 URDF 接入 XRobotToolkit，对齐关节与动作空间；拆分动作和图像传输，适配 ROS2 话题及 π0.5 / OpenPI 推理接口。", "采集银行卡抓取、盖章递交和刷卡任务；单任务约 100 条、约 50 Hz，盖章递交初测 20 次，核心流程完成率约 80%。"], diagram: "具身智能系统流程图" },
-        { role: "Jetson Thor · SO-101", title: "SO-101 机械臂动作轨迹优化与边缘端部署", summary: "基于 Jetson Thor 构建轻量机械臂具身操作验证链路，围绕 VLA 动作块衔接、执行时序调度与关节轨迹平滑开展优化，并面向 SO-101 仿真及真机验证。", details: ["完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；搭建 ACT / SmolVLA 策略训练与推理环境，推进 SO-101 执行链路集成。", "以 SO-101 Bench 为统一任务平台，对比固定动作块、PTS 风格时间重参数化 / 异步执行，以及结合任务进度与执行反馈的调度策略；评估成功率、完成时间、轨迹连续性与推理等待。"], diagram: "SO-101 动作执行优化流程图" },
+        { role: "Jetson Thor · SO-101", title: "SO-101 机械臂动作执行时序与轨迹连续性优化", summary: "围绕 VLA 动作块时序、异步推理接管与夹爪接触执行开展工程验证；在 Thor 上完成策略推理基准、同步 / 异步调度对照及 SO-101 MuJoCo 夹爪几何实验。", details: ["完成 Thor Docker、CUDA / JetPack 适配及 MuJoCo 4.0.1 EGL 无头渲染；验证 SmolVLA / GR00T observation→action chunk 推理，搭建 SO-101 MuJoCo 环境、策略适配器、同步 / 异步调度器与执行指标记录。", "对比 sync 与 async-naive 的墙钟耗时、动作块过期率、接管跳变及关节跟踪 RMSE；另以确定性 IK fixture 验证夹爪碰撞几何和接触垫参数敏感性。当前策略 checkpoint 为 SO-100 训练资产，策略自主抓取与真机闭环尚未验证。"], diagram: "SO-101 动作执行优化流程图",
+          evidence: {
+            summary: "展开实测数据与验证边界",
+            platformTitle: "Thor 边缘计算环境",
+            platform: ["JetPack 7.0 / L4T R38.2.0 · CUDA 13.0 · Driver 580.00", "aarch64 · 122 GiB RAM · 735 GB 可用磁盘 · Docker 27.5.1"],
+            inferenceTitle: "模型推理基准（真实 observation 输入）",
+            inferenceStats: [["200.9 ms", "SmolVLA P50"], ["205.8 ms", "SmolVLA P95"], ["201 ms", "GR00T N1.7 P50"], ["205 ms", "GR00T N1.7 P95"], ["6.2 GiB", "GR00T GPU 峰值"], ["16 × 6", "GR00T 输出动作块（臂 5 + 夹爪 1）"]],
+            inferenceNote: "SmolVLA：200-step SO-100 checkpoint，chunk_size / n_action_steps = 50，6 维动作；episode 0 的 8 帧生成 8 个动作块。GR00T：N1.7-3B 候选 checkpoint，加载 1031/1031 张量；5 次计时（2 次 warmup）。均为推理基准，不代表任务成功率。",
+            schedulerTitle: "同步与异步调度对照（3 seeds）",
+            schedulerHeaders: ["指标", "Sync", "Async-naive"],
+            schedulerRows: [["墙钟耗时", "26.74 s", "24.26 s"], ["动作块过期率", "26.4%", "93.9%"], ["最大接管跳变", "22.20°", "80.15°"], ["关节跟踪 RMSE", "2.97°", "6.02°"], ["策略成功 latch", "0 / 3", "0 / 3"]],
+            schedulerNote: "Async-naive 耗时约减少 9.3%，但动作块过期率、接管跳变和跟踪误差明显恶化；因此这组数据说明“只追求异步提速”不可取，不应包装成性能提升。",
+            gripTitle: "夹爪碰撞几何 / 接触垫实验（确定性 IK fixture，非策略自主抓取）",
+            gripHeaders: ["方案", "结果", "关键数据"],
+            gripRows: [["原始 prong 几何", "楔入式抬升", "抬升 108.0 mm；最大穿透 12.892 mm；非干净抓取"], ["Bounded closure", "失败", "最终 z 12.3 mm；最大穿透约 0.86–0.93 mm；无双侧接触"], ["双侧接触垫 + 10°", "Fixture 成功", "最终 z 49.608 mm；最大穿透 2.864 mm；闭合 / 保持穿透 1.307 / 1.191 mm；双侧接触 4/5"]],
+            gripNote: "双垫方案 50 mm 抬升中约滑移 12 mm；参数筛查 27/45 组合通过。该结果来自独立派生 MJCF 和确定性 IK fixture，不是 SmolVLA / GR00T 自主抓取，也不是真机验证。",
+            validationTitle: "工程验证与边界",
+            validationStats: [["53", "自动化测试通过"], ["0 / 3", "策略自主抓取成功"], ["未执行", "SO-101 真机闭环"]],
+            validationNote: "SO-100 训练 checkpoint 跨域适配到 SO-101；策略曾未接近目标物体。GR00T 本轮只完成离线动作块推理。夹爪双垫实验位于独立 PR #15，尚未合并。"
+          } },
         { role: "队长", title: "多模态具身智能系统开发", summary: "在 Jetson Orin Nano 部署 YOLOv5n、Whisper.cpp 与 Qwen，并通过 ONNX / TensorRT 加速检测，连接语音、视觉、决策与运动执行。",  bullets: ["端到端多模态 Agent 联调", "面向机器人任务的轻量化边缘部署"] },
       ],
     },
@@ -136,7 +155,26 @@ const translations = {
       detailLabels: ["My role", "Validation"], note: "System diagram · not project footage",
       items: [
         { role: "星尘智能", title: "Robot Camera Assistant: Full-Stack App & Hardware Execution", summary: "Built a React / FastAPI camera assistant for WebRTC preview, person following, camera moves, and video return; validated with MuJoCo + mock execution, then deployed to RK3588 and integrated with the robot SDK.", details: ["Built the React workbench and FastAPI backend; converted 25-D HDF5 actions into SDK waypoints with SE(2) relocation, and integrated YOLO11n / ONNX and Re-ID tracking.", "MuJoCo + mock regression covered waypoint conversion, scheduling, stop and status return. Following V1 passed 109 tests; hardware supports push-in, pull-out, lateral and orbit moves."], diagram: "Camera assistant system diagram" },        { role: "GRG Superbrain Robotics", title: "Tiangong Teleoperation & VLA Deployment on Hardware", summary: "Connected teleoperation data, preprocessing, policy training, remote inference and robot execution; used ZMQ to isolate ROS2 and reduced solver latency from about 50 ms to under 20 ms.", details: ["Integrated the Tiangong URDF into XRobotToolkit with aligned joint naming and action space; separated binary action push from JPEG image transport; adapted ROS2 topic mapping, action clipping, and field alignment for π0.5 / OpenPI models.", "Collected card-following grasp, paper stamping and handover, and card-swipe tasks (about 100 episodes per task at about 50 Hz); the stamping-and-handover task reached about 80% core-flow completion in 20 initial trials."], diagram: "Embodied AI system diagram" },
-        { role: "Jetson Thor · SO-101", title: "SO-101 Arm Trajectory Optimization & Edge Deployment", summary: "Building a lightweight manipulation pipeline on Jetson Thor, focusing on VLA action-chunk continuity, execution scheduling, and joint-trajectory smoothing for SO-101 simulation and future hardware validation.", details: ["Adapted Docker, CUDA / JetPack, and MuJoCo 4.0.1 headless EGL rendering on Thor; validated ACT / SmolVLA training and inference pipelines and am integrating the SO-101 execution path.", "Using SO-101 Bench as the common task platform, comparing fixed action chunks, PTS-style time reparameterization / asynchronous execution, and progress- and feedback-aware scheduling. Metrics include task success, completion time, trajectory continuity, and inference wait."], diagram: "SO-101 action-execution optimization pipeline" },
+        { role: "Jetson Thor · SO-101", title: "SO-101 Action Timing & Trajectory Continuity", summary: "Engineering validation of VLA action-chunk timing, asynchronous inference handoff, and gripper contact execution on Thor, including inference benchmarks, scheduler comparisons, and SO-101 MuJoCo gripper geometry tests.", details: ["Adapted Docker, CUDA / JetPack, and MuJoCo 4.0.1 headless EGL rendering; validated SmolVLA / GR00T observation-to-action-chunk inference and built the SO-101 MuJoCo environment, policy adapter, sync / async scheduler, and execution metrics.", "Compared wall time, stale-chunk rate, handoff discontinuity, and joint tracking RMSE for sync vs async-naive execution; separately tested gripper collision geometry and contact-pad sensitivity with a deterministic IK fixture. The current policy checkpoint was trained on SO-100; autonomous policy grasping and real-hardware closure remain unverified."], diagram: "SO-101 action-execution optimization pipeline",
+          evidence: {
+            summary: "View measured results & validation limits",
+            platformTitle: "Thor edge-computing platform",
+            platform: ["JetPack 7.0 / L4T R38.2.0 · CUDA 13.0 · Driver 580.00", "aarch64 · 122 GiB RAM · 735 GB free disk · Docker 27.5.1"],
+            inferenceTitle: "Policy inference benchmarks (real observations)",
+            inferenceStats: [["200.9 ms", "SmolVLA P50"], ["205.8 ms", "SmolVLA P95"], ["201 ms", "GR00T N1.7 P50"], ["205 ms", "GR00T N1.7 P95"], ["6.2 GiB", "GR00T GPU peak"], ["16 × 6", "GR00T action chunk (5 arm + 1 gripper)"]],
+            inferenceNote: "SmolVLA: 200-step SO-100 checkpoint, chunk_size / n_action_steps = 50, 6D action; 8 frames from episode 0 produced 8 chunks. GR00T: candidate N1.7-3B checkpoint, 1031/1031 tensors loaded; 5 timed runs (2 warmups). These are inference benchmarks, not task success rates.",
+            schedulerTitle: "Synchronous vs asynchronous scheduling (3 seeds)",
+            schedulerHeaders: ["Metric", "Sync", "Async-naive"],
+            schedulerRows: [["Wall-clock time", "26.74 s", "24.26 s"], ["Stale-chunk rate", "26.4%", "93.9%"], ["Max handoff jump", "22.20°", "80.15°"], ["Joint tracking RMSE", "2.97°", "6.02°"], ["Policy success latch", "0 / 3", "0 / 3"]],
+            schedulerNote: "Async-naive reduced elapsed time by about 9.3%, but substantially worsened stale-chunk rate, handoff discontinuity, and tracking error. This is evidence that naive asynchronous speed-up alone is not a performance improvement.",
+            gripTitle: "Gripper collision / contact-pad tests (deterministic IK fixture, not policy grasping)",
+            gripHeaders: ["Configuration", "Outcome", "Key measurements"],
+            gripRows: [["Original prong geometry", "Wedge-assisted lift", "108.0 mm lift; 12.892 mm max penetration; not a clean grasp"], ["Bounded closure", "Failed", "Final z 12.3 mm; ~0.86–0.93 mm max penetration; no bilateral contact"], ["Dual contact pads + 10°", "Fixture passed", "Final z 49.608 mm; 2.864 mm max penetration; 1.307 / 1.191 mm closure / hold penetration; bilateral contact 4/5"]],
+            gripNote: "The dual-pad fixture slipped about 12 mm during a 50 mm lift; 27/45 parameter combinations passed screening. Results use a separately derived MJCF and deterministic IK fixture—not autonomous SmolVLA / GR00T grasping or real-hardware validation.",
+            validationTitle: "Engineering validation & limits",
+            validationStats: [["53", "Automated tests passed"], ["0 / 3", "Autonomous policy grasps"], ["Not run", "SO-101 real-hardware loop"]],
+            validationNote: "The policy checkpoint was trained on SO-100 and adapted cross-domain to SO-101; the policy did not approach the target object in the short test. GR00T was tested only for offline action-chunk inference. Dual-pad results are in separate PR #15, not yet merged."
+          } },
         { role: "Team Lead", title: "Multimodal Embodied AI System", summary: "Deployed YOLOv5n, Whisper.cpp, and Qwen on Jetson Orin Nano, accelerated detection from PyTorch through ONNX to TensorRT, and connected voice commands, vision, model decisions, and motion.", bullets: ["Integrated a multimodal agent workflow", "Optimized lightweight deployment for robot tasks"] },
       ],
     },
@@ -267,6 +305,19 @@ const applyLanguage = (language) => {
     });
     const diagram = item.querySelector(".project-diagram");
     if (diagram) diagram.setAttribute("aria-label", project.diagram);
+    const evidence = item.querySelector(".project-evidence");
+    if (evidence && project.evidence) {
+      const e = project.evidence;
+      evidence.querySelector("summary").textContent = e.summary;
+      const statGrid = (items) => items.map(([value, label]) => `<div class="evidence-stat"><strong>${value}</strong><span>${label}</span></div>`).join("");
+      const table = (headers, rows) => `<div class="evidence-table-wrap"><table class="evidence-table"><thead><tr>${headers.map(x => `<th>${x}</th>`).join("")}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(x => `<td>${x}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      evidence.querySelector(".project-evidence-content").innerHTML =
+        `<section class="evidence-block"><h4>${e.platformTitle}</h4><p>${e.platform.join("<br>")}</p></section>
+        <section class="evidence-block"><h4>${e.inferenceTitle}</h4><div class="evidence-stats">${statGrid(e.inferenceStats)}</div><p class="evidence-note">${e.inferenceNote}</p></section>
+        <section class="evidence-block"><h4>${e.schedulerTitle}</h4>${table(e.schedulerHeaders,e.schedulerRows)}<p class="evidence-note">${e.schedulerNote}</p></section>
+        <section class="evidence-block"><h4>${e.gripTitle}</h4>${table(e.gripHeaders,e.gripRows)}<p class="evidence-note">${e.gripNote}</p></section>
+        <section class="evidence-block"><h4>${e.validationTitle}</h4><div class="evidence-stats evidence-stats--compact">${statGrid(e.validationStats)}</div><p class="evidence-note">${e.validationNote}</p></section>`;
+    }
     const note = item.querySelector(".diagram-note");
     if (note) note.textContent = copy.projects.note;
     item.querySelectorAll("li").forEach((bullet, bulletIndex) => {
