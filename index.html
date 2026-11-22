@@ -132,7 +132,7 @@
         <article class="reveal-card">
           <h3>SLAM、感知与定位</h3>
           <p>激光 / RGB-D 建图、视觉惯性定位、目标检测与跟踪。</p>
-          <a class="capability-link" href="#stardust">目标跟随 ↗</a>
+          <a class="capability-link" href="#go2-slam">SLAM 与导航项目 ↗</a>
         </article>
         <article class="reveal-card">
           <h3>具身智能与边缘端</h3>
@@ -248,6 +248,14 @@
             <div class="case-bottom"><div><strong>&lt;20 ms</strong><small><span class="case-zh">优化后的解算延迟</span><span class="case-en">reported solver latency</span></small></div><div><strong>~50 Hz</strong><small><span class="case-zh">任务数据采集频率</span><span class="case-en">task data collection</span></small></div></div>
             <a class="case-link" href="#vla"><span class="case-zh">查看部署链路</span><span class="case-en">View deployment pipeline</span><span aria-hidden="true">↗</span></a>
           </article>
+          <article class="case-feature case-feature--slam">
+            <div class="case-meta"><span>04 / SLAM &amp; AUTONOMOUS NAVIGATION</span><span>UNITREE GO2 · 2025</span></div>
+            <div class="case-kicker"><span class="case-zh">环境建图与自主移动</span><span class="case-en">MAPPING &amp; AUTONOMOUS NAVIGATION</span></div>
+            <h3><span class="case-zh">从 RGB-D 感知到 Go2 自主导航</span><span class="case-en">From RGB-D perception to Go2 navigation</span></h3>
+            <div class="case-mini-flow"><span>D435i RGB-D</span><b>→</b><span>RTAB-Map</span><b>→</b><span>ROS2 TF</span><b>→</b><span>Nav2</span><b>→</b><span>Go2 EDU</span></div>
+            <p><span class="case-zh">基于 Unitree Go2 EDU、RealSense D435i 与 Jetson Orin Nano，使用 RTAB-Map 0.21.10 完成 RGB-D 环境建图，梳理 map / odom / base_link 坐标变换，并接入 Nav2 验证定位与目标点导航。</span><span class="case-en">Built an RGB-D mapping and navigation pipeline with Unitree Go2 EDU, RealSense D435i and Jetson Orin Nano. Integrated RTAB-Map 0.21.10, ROS2 TF frames and Nav2 for localization and goal navigation.</span></p>
+            <div class="case-bottom"><div><strong>RTAB-Map</strong><small><span class="case-zh">RGB-D SLAM</span><span class="case-en">RGB-D SLAM</span></small></div><div><strong>Nav2</strong><small><span class="case-zh">自主导航</span><span class="case-en">autonomous navigation</span></small></div><div><strong>ROS2</strong><small><span class="case-zh">系统集成</span><span class="case-en">system integration</span></small></div></div>
+            <a class="case-link" href="#go2-slam"><span class="case-zh">查看项目实现</span><span class="case-en">View project details</span><span aria-hidden="true">↗</span></a>
           </article>
         </div>
         <p class="case-disclaimer"><span class="case-zh">上述为工程结构示意，不是实拍或性能仪表盘。具体数据沿用现有项目记录；公司项目代码与未授权素材不公开。</span><span class="case-en">System diagrams, not photos or live benchmarks. Figures are from existing project descriptions; proprietary code and unapproved media are not published.</span></p>
